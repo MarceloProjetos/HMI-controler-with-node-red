@@ -11,7 +11,7 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 #Node-Red flow
 ![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/flow%20node-red.png)
 
-##Software that I use in this project
+##To setup this project we need to:
 
 | Software | Description |
 | -------- | ----------- |
@@ -28,11 +28,13 @@ Access the site [ActiveMQ][2]
 Look for "Downloads" and download the version **"Windows Distribution"**
 
 Unzip the file "apache-activemq-5.13.3.zip" the folder /Development
-Across prompt enter in /Development/apache-activemq-5.13.3/bin"
-Run:
+In a terminal window enter the following command
 
     c:/Development/apache-activemq-5.13.3/bin/activemq start
 
+If an error occurred, Maybe you don't have installed "JAVA". Install [**"Java SE Development Kit"**][6].
+
+For Win64 **jdk-8u102-windows-x64.exe** or **jdk-8u102-windows-i586.exe** for Win32 
 ___
 ___
 #Install environment in **Portuguese Brazil**
@@ -44,12 +46,13 @@ Procure "Downloads" e baixe a versão **"Windows Distribution"**
 
 Descompactar o arquivo "apache-activemq-5.13.3.zip" na pasta /Desenvolvimento
 
-Pelo prompt de comando entre em "c:/Desenvolvimento/apache-activemq-5.13.3/bin"
-Execute
+Em uma janela de terminal digite o seguinte comando
 
     c:/Desenvolvimento/apache-activemq-5.13.3/bin/activemq start
 
-Se ocorrer um erro é provavel que esteja faltando o JAVA. Instale o "Java SE Development Kit".
+Se ocorrer um erro, talvez você não tenha instalado "JAVA". Instale o [**"Java SE Development Kit"**][6].
+
+Para Win64 **jdk-8u102-windows-x64.exe** ou **jdk-8u102-windows-i586.exe** para Win32 
 
 Para testar abra um browser e conecte na porta 8161 "http://127.0.0.1:8161/admin/"
 
@@ -288,3 +291,4 @@ pxa255@gmail.com
 [3]:https://nodejs.org/
 [4]:https://github.com/MarceloProjetos
 [5]:https://www.mongodb.com/download-center#community
+[6]:http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html
