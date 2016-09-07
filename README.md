@@ -16,7 +16,7 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 | Software | Description |
 | -------- | ----------- |
 | [ActiveMQ][2] | MQTT v3.1 support allowing for connections in an IoT environment.  |
-| [Java SE][6]  | For Win64bits jdk-8u102-windows-x64.exe or jdk-8u102-windows-i586.exe for Win32bits. |
+| [Java SE][6]  | If you have not installed, download the most suitable for your system. X64 or i586. |
 | [NodeJS][3]   | Support package npm, is the largest ecosystem of open source libraries in the world. |
 | [Node-Red][1] | Node-RED is a tool for wiring together hardware devices, APIs and online services. |
 | [MongoDB][5]  | It is a graphical tool for control together hardware devices, online services and others NPM library. |
@@ -24,7 +24,7 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 I tested the following procedure in Windows 7 / Windows 8.1 and Windows 10. 
 Although this project work on linux, I make this in Windows because I am using a [PIPO X9][7]
 
-#Install environment in **English** 
+#Install environment 
 
 ##1-Broker Installation "ActiveMQ" 
 
@@ -95,76 +95,6 @@ Click "OK" and position the flow where to find, the better.
 Ready the NODE-RED is installed!
 ___
 ___
-#Instalação do Ambiente em **Portuguese Brazil**
-
-##1-Instalação do Broker "ActiveMQ"
-
-Acessar o site [ActiveMQ][2]
-Procure "Downloads" e baixe a versão **"Windows Distribution"**
-
-Descompactar o arquivo "apache-activemq-5.13.3.zip" na pasta /Desenvolvimento
-
-Em uma janela de terminal digite o seguinte comando
-
-    c:/Desenvolvimento/apache-activemq-5.13.3/bin/activemq start
-
-Se ocorrer um erro, talvez você não tenha instalado "JAVA SE". Instale o [**"Java SE Development Kit"**][6].
-
-Para testar abra um browser **FireFox** ou **Chrome** e conecte na porta 8161 "http://127.0.0.1:8161/admin/"
-
-Senha: **admin**   Login: **admin**
-
-Configurando para iniciar ActiveMQ no Boot do Windows.
-
-Para sistemas de 64 bits em uma janela de terminal, em permissão root, digite o seguinte comando
-
-    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win64/InstallService.bat
-
-Para sistemas de 32 bits em uma janela de terminal, em permissão root, digite o seguinte comando
-
-    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win32/InstallService.bat
-
-Para verificar se ele esta instalado como serviço entre em:
-
-    Painel de Controle-->Ferramentas Administrativas-->Serviços e procure por **ActiveMQ**
-___
-##2-Instalação NODE-JS e Python
-
-Acessar o site [NodeJS][3]
-
-Abaixe a ultima versão LTS, siga com a instalação padrão. Nesse exemplo utilizei a "node-v4.4.5-x64"
-
-Agora instale o **phyton**. Nesse tutorial utilizei [python-2.7.10][8]
-
-Aguarde terminara a instalação e reinicie a maquina para continuar.
-___
-##3-Instalação NODE-RED
-
-Abra um terminal do windows com permição de adiministrador e no diretorio do usuario, digite para instalar o node-red:
-
-    npm install -g --unsafe-perm node-red
-
-Aguarde terminara a instalação...
-
-Depois no mesmo terminal instale as bibliotecas:
-
-    c:\Program Files\nodejs\npm install -g node-red-contrib-modbustcp-no-pooling
-    c:\Program Files\nodejs\npm install -g node-red-node-mongodb
-    c:\Program Files\nodejs\npm install -g node-red-dashboard
-
-Execute no prompt de comando **"node-red -v"**
-
-Abra um brower e conecte na porta 1880 **"http://127.0.0.1:1880/#"**
-
-Para restaurar um fluxo do node-red com o comando Ctrl-I ou pelo menu, "Menu > Import > Clipboard".
-
-Abra o arquivo que esta na pasta NodeRed\AplanadoraN.txt aqui no github
-
-Selecione tudo **"Ctrl-a"** --> Copie **"Ctrl-c"** --> Cole **"Ctrl-v"** todo o conteúdo JSON para a caixa que aparece vazia no node-red.
-
-Click em "OK" e posicione o fluxo onde achar, melhor.
-
-Pronto o NODE-RED esta instalado!
 
 Agora configurando para iniciar no Boot...
 
@@ -174,7 +104,7 @@ Use o agendador de tarefas do Windows para no boot executar.
 
 ###Bibliotecas NPM no node-red
 
-Utilizando uma biblioteca no NPM nos fluxos do node-red
+Se você precisar de uma biblioteca do NPM nos fluxos do seu projeto em node-red
 Instalar via prompt a biblioteca "NPM" escolhida. Para esse exemplo utilizarei a "aws-sdk"
 
     https://www.npmjs.com/package/aws-sdk
