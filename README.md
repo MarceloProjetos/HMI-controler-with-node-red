@@ -1,7 +1,7 @@
 HMI (human machine interface) in Node-RED & MongoDB
 ========================
 
-This project is an HTML page that accesses a "MQTT" server, that accesses the "Node-red". The Node-Red in turn accesses a MongoDB database which stores the machine records. The Node-red manages all this data and controls a PLC with Modbus TCP server.
+This project is an HTML page that accesses a "MQTT" server, that accesses the "Node-red". The Node-Red in turn accesses a MongoDB database which stores the machine records. The Node-red manages all this data and controls a PLC with Modbus TCP server. As in the image below:
 
 ![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/project idea with node-red.png)
 
@@ -20,6 +20,9 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 | [NodeJS][3]   | Support package npm, is the largest ecosystem of open source libraries in the world. |
 | [Node-Red][1] | Node-RED is a tool for wiring together hardware devices, APIs and online services. |
 | [MongoDB][5]  | It is a graphical tool for control together hardware devices, online services and others NPM library. |
+
+I tested the following procedure in Windows 7 / Windows 8.1 and Windows 10. 
+Although this project work on linux, I make this in Windows because I am using a [PIPO X9][7]
 
 #Install environment in **English** 
 
@@ -41,15 +44,55 @@ Password: **admin**   Login: **admin**
 
 Setting to start ActiveMQ on Windows Boot.
 
-Para sistemas 64 bits iniciar o ActiveMQ no Boot do windows entre na pasta 
+For systems 64 bits in a terminal window, in root permission, enter the following command
 
-    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win64
+    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win64/InstallService.bat
 
-Para sistemas 32 bits
+For systems 32 bits in a terminal window, in root permission, enter the following command
 
-    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win32
+    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win32/InstallService.bat
 
-Execute **InstallService.bat** num prompt de comando em root
+To verify that it is installed as a service see:
+
+    Control Panel-->Administrative tools-->Services and look for **ActiveMQ**
+___
+##2-Installation NODE-JS and Python
+
+Access the site [NodeJS][3]
+
+Download the latest LTS version, follow with the default installation. In this example I used the "node-v4.4.5-x64"
+
+Now install the **phyton**. In this tutorial I used [python-2.7.10][8]
+
+Wait for the installation and restart the machine to continue.
+___
+##3-Installation NODE-RED
+
+Run the following command in the root directory of your Node-RED install
+
+    npm install -g --unsafe-perm node-red
+
+Wait finish installation...
+
+Run the following command in root mode. Of the libraries installation.
+
+    c:\Program Files\nodejs\npm install -g node-red-contrib-modbustcp-no-pooling
+    c:\Program Files\nodejs\npm install -g node-red-node-mongodb
+    c:\Program Files\nodejs\npm install -g node-red-dashboard
+   
+Run the command prompt **"node-red -v"**
+
+For test open a browser **FireFox** or **Chrome** e connect to port 1880 **"http://127.0.0.1:1880/#"**
+
+To restore a node-red flow with Ctrl-I command or the menu, "Menu > Import > Clipboard".
+
+Now open the folder in Github **NodeRed\AplanadoraN.txt** and open the file.
+
+Select all **"Ctrl-a"** --> Copy **"Ctrl-c"** --> Past **"Ctrl-v"** all JSON content to the box that appears empty in node-red.
+
+Click "OK" and position the flow where to find, the better.
+
+Ready the NODE-RED is installed!
 ___
 ___
 #Instalação do Ambiente em **Portuguese Brazil**
@@ -73,17 +116,17 @@ Senha: **admin**   Login: **admin**
 
 Configurando para iniciar ActiveMQ no Boot do Windows.
 
-Para sistemas 64 bits iniciar o ActiveMQ no Boot do windows entre na pasta 
+Para sistemas de 64 bits em uma janela de terminal, em permissão root, digite o seguinte comando
 
-    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win64
+    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win64/InstallService.bat
 
-Para sistemas 32 bits
+Para sistemas de 32 bits em uma janela de terminal, em permissão root, digite o seguinte comando
 
-    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win32
+    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win32/InstallService.bat
 
-Execute **InstallService.bat** num prompt de comando em root
+Para verificar se ele esta instalado como serviço entre em:
 
-Para verificar entre em Painel de Controle->Ferramentas Administrativas -> serviços e procure por ActiveMQ
+    Painel de Controle-->Ferramentas Administrativas-->Serviços e procure por **ActiveMQ**
 ___
 ##2-Instalação NODE-JS e Python
 
@@ -91,35 +134,39 @@ Acessar o site [NodeJS][3]
 
 Abaixe a ultima versão LTS, siga com a instalação padrão. Nesse exemplo utilizei a "node-v4.4.5-x64"
 
-Agora instale o phyton ultima versão LTS. Nesse tutorial utilizei "python-2.7.10.amd64"
+Agora instale o **phyton**. Nesse tutorial utilizei [python-2.7.10][8]
 
-Aguarde terminara a instalação e reinicie a maquina...
+Aguarde terminara a instalação e reinicie a maquina para continuar.
 ___
 ##3-Instalação NODE-RED
 
-Run the following command in the root directory of your Node-RED install
+Abra um terminal do windows com permição de adiministrador e no diretorio do usuario, digite para instalar o node-red:
 
     npm install -g --unsafe-perm node-red
 
 Aguarde terminara a instalação...
 
-Entre pelo prompt no modo root em: "C:\Program Files\nodejs" e digite:
+Depois no mesmo terminal instale as bibliotecas:
 
-    npm install -g node-red-contrib-modbustcp-no-pooling
-    npm install -g node-red-node-mongodb
-    npm install -g node-red-dashboard
+    c:\Program Files\nodejs\npm install -g node-red-contrib-modbustcp-no-pooling
+    c:\Program Files\nodejs\npm install -g node-red-node-mongodb
+    c:\Program Files\nodejs\npm install -g node-red-dashboard
 
-Execute no prompt de comando "node-red -v"
+Execute no prompt de comando **"node-red -v"**
 
-Abra um brower e conecte na porta 1880 "http://127.0.0.1:1880/#"
+Abra um brower e conecte na porta 1880 **"http://127.0.0.1:1880/#"**
 
 Para restaurar um fluxo do node-red com o comando Ctrl-I ou pelo menu, "Menu > Import > Clipboard".
 
-Copie e cole todo o conteudo JSON para a caixa que apareceu.
+Abra o arquivo que esta na pasta NodeRed\AplanadoraN.txt aqui no github
+
+Selecione tudo **"Ctrl-a"** --> Copie **"Ctrl-c"** --> Cole **"Ctrl-v"** todo o conteúdo JSON para a caixa que aparece vazia no node-red.
 
 Click em "OK" e posicione o fluxo onde achar, melhor.
 
-Configurando para iniciar no Boot...
+Pronto o NODE-RED esta instalado!
+
+Agora configurando para iniciar no Boot...
 
 Use o agendador de tarefas do Windows para no boot executar.
 
@@ -309,3 +356,5 @@ pxa255@gmail.com
 [4]:https://github.com/MarceloProjetos
 [5]:https://www.mongodb.com/download-center#community
 [6]:http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html
+[7]:http://www.pipo-store.com/pipo-x9-tv-box-8-9-inch-mini-pc.html
+[8]:https://www.python.org/downloads/release/python-2712/
