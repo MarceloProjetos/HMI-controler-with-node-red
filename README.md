@@ -6,10 +6,10 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 ![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/project idea with node-red.png)
 
 #Jquery Page
-![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/IHM_HTML/blob/master/images/HMI.png)
+![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/HMI.png)
 
 #Node-Red flow
-![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/IHM_HTML/blob/master/images/flow node-red.png)
+![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/flow%20node-red.png)
 
 ##Software that I use in this project
 
