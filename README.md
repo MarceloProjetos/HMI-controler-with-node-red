@@ -2,7 +2,8 @@ HMI (human machine interface) in Node-RED & MongoDB
 ========================
 
 This project is an HTML page that accesses a "MQTT" server, that accesses the "Node-red". The Node-Red in turn accesses a MongoDB database which stores the machine records. The Node-red manages all this data and controls a PLC with Modbus TCP server.
-![alt tag](https://github.com/altamira/IHM_HTML/blob/master/images/project idea with node-red.png)
+
+![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/project idea with node-red.png)
 
 #Jquery Page
 ![alt tag](https://github.com/altamira/IHM_HTML/blob/master/HMI.png)
