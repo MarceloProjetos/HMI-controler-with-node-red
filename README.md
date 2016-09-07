@@ -20,14 +20,31 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 | [Node-Red][1] | Node-RED is a tool for wiring together hardware devices, APIs and online services. |
 | [MongoDB][5]  | It is a graphical tool for control together hardware devices, online services and others NPM library. |
 
-#Install environment in English after in Portuguese
+#Install environment in **English** 
+
+##1-Broker Installation "ActiveMQ" 
+
+Access the site [ActiveMQ][2]
+Look for "Downloads" and download the version **"Windows Distribution"**
+
+Unzip the file "apache-activemq-5.13.3.zip" the folder /Development
+Across prompt enter in /Development/apache-activemq-5.13.3/bin"
+Run:
+
+    c:/Development/apache-activemq-5.13.3/bin/activemq start
+
+___
+___
+#Install environment in **Portuguese Brazil**
 
 ##1-Instalação do Broker "ActiveMQ"
 
 Acessar o site [ActiveMQ][2]
-Procure "Downloads" e baixe a versão "Windows Distribution"
-Descompactar a pasta "apache-activemq-5.13.3" na pasta /Desenvolvimento
-Pelo terminar de comando entre em "c:/Desenvolvimento/apache-activemq-5.13.3/bin"
+Procure "Downloads" e baixe a versão **"Windows Distribution"**
+
+Descompactar o arquivo "apache-activemq-5.13.3.zip" na pasta /Desenvolvimento
+
+Pelo prompt de comando entre em "c:/Desenvolvimento/apache-activemq-5.13.3/bin"
 Execute
 
     c:/Desenvolvimento/apache-activemq-5.13.3/bin/activemq start
@@ -36,7 +53,7 @@ Se ocorrer um erro é provavel que esteja faltando o JAVA. Instale o "Java SE De
 
 Para testar abra um browser e conecte na porta 8161 "http://127.0.0.1:8161/admin/"
 
-Senha:admin Login:admin
+Senha: **admin**   Login: **admin**
 
 Configurando para iniciar ActiveMQ no Boot.
 
@@ -47,7 +64,7 @@ Para sistemas 32 bits iniciar o ActiveMQ no Boot do windows entre na pasta ACTIV
 Execute InstallService.bat num prompt de comando em root
 
 Para verifcar entre em Painel de Controle->Ferramentas Administrativas -> serviços e procure por ActiveMQ
-
+___
 ##2-Instalação NODE-JS e Python
 
 Acessar o site [NodeJS][3]
@@ -57,7 +74,7 @@ Abaixe a ultima versão LTS, siga com a instalação padrão. Nesse exemplo util
 Agora instale o phyton ultima versão LTS. Nesse tutorial utilizei "python-2.7.10.amd64"
 
 Aguarde terminara a instalação e reinicie a maquina...
-
+___
 ##3-Instalação NODE-RED
 
 Run the following command in the root directory of your Node-RED install
@@ -119,7 +136,7 @@ Reiniciar o node-red e para acessar "aws" pelo node-red coloque dentro de um blo
     accessKeyId: 'ALIAITORMWJYRXO00000', 
     secretAccessKey: 'cLuJmpUyg/Khxtb4000000KmqISELc1dW1NoMpfm' 
     });
-
+___
 ##4-Instalação MongoDB
 
 Acessar o site [MongoDB][5]
@@ -259,7 +276,7 @@ E
     	}
     }
 
-
+___
 #Author
 
 [Marcelo Miranda][4]
