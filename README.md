@@ -16,6 +16,7 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 | Software | Description |
 | -------- | ----------- |
 | [ActiveMQ][2] | MQTT v3.1 support allowing for connections in an IoT environment.  |
+| [Java SE][6]  | For Win64bits jdk-8u102-windows-x64.exe or jdk-8u102-windows-i586.exe for Win32bits. |
 | [NodeJS][3]   | Support package npm, is the largest ecosystem of open source libraries in the world. |
 | [Node-Red][1] | Node-RED is a tool for wiring together hardware devices, APIs and online services. |
 | [MongoDB][5]  | It is a graphical tool for control together hardware devices, online services and others NPM library. |
@@ -32,12 +33,26 @@ In a terminal window enter the following command
 
     c:/Development/apache-activemq-5.13.3/bin/activemq start
 
-If an error occurred, Maybe you don't have installed "JAVA". Install [**"Java SE Development Kit"**][6].
+If an error occurred, Maybe you don't have installed "JAVA SE". Install [**"Java SE Development Kit"**][6].
 
-For Win64 **jdk-8u102-windows-x64.exe** or **jdk-8u102-windows-i586.exe** for Win32 
+For test open a browser **FireFox** or **Chrome** e connect to port 8161 "http://127.0.0.1:8161/admin/"
+
+Password: **admin**   Login: **admin**
+
+Setting to start ActiveMQ on Windows Boot.
+
+Para sistemas 64 bits iniciar o ActiveMQ no Boot do windows entre na pasta 
+
+    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win64
+
+Para sistemas 32 bits
+
+    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win32
+
+Execute **InstallService.bat** num prompt de comando em root
 ___
 ___
-#Install environment in **Portuguese Brazil**
+#Instalação do Ambiente em **Portuguese Brazil**
 
 ##1-Instalação do Broker "ActiveMQ"
 
@@ -50,23 +65,25 @@ Em uma janela de terminal digite o seguinte comando
 
     c:/Desenvolvimento/apache-activemq-5.13.3/bin/activemq start
 
-Se ocorrer um erro, talvez você não tenha instalado "JAVA". Instale o [**"Java SE Development Kit"**][6].
+Se ocorrer um erro, talvez você não tenha instalado "JAVA SE". Instale o [**"Java SE Development Kit"**][6].
 
-Para Win64 **jdk-8u102-windows-x64.exe** ou **jdk-8u102-windows-i586.exe** para Win32 
-
-Para testar abra um browser e conecte na porta 8161 "http://127.0.0.1:8161/admin/"
+Para testar abra um browser **FireFox** ou **Chrome** e conecte na porta 8161 "http://127.0.0.1:8161/admin/"
 
 Senha: **admin**   Login: **admin**
 
-Configurando para iniciar ActiveMQ no Boot.
+Configurando para iniciar ActiveMQ no Boot do Windows.
 
-Para sistemas 64 bits iniciar o ActiveMQ no Boot do windows entre na pasta ACTIVEMQ_HOME/bin/win64
+Para sistemas 64 bits iniciar o ActiveMQ no Boot do windows entre na pasta 
 
-Para sistemas 32 bits iniciar o ActiveMQ no Boot do windows entre na pasta ACTIVEMQ_HOME/bin/win32
+    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win64
 
-Execute InstallService.bat num prompt de comando em root
+Para sistemas 32 bits
 
-Para verifcar entre em Painel de Controle->Ferramentas Administrativas -> serviços e procure por ActiveMQ
+    c:/Desenvolvimento/apache-activemq-5.13.3/bin/win32
+
+Execute **InstallService.bat** num prompt de comando em root
+
+Para verificar entre em Painel de Controle->Ferramentas Administrativas -> serviços e procure por ActiveMQ
 ___
 ##2-Instalação NODE-JS e Python
 
