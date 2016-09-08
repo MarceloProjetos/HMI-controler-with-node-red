@@ -11,7 +11,7 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 #Node-Red flow
 ![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/flow%20node-red.png)
 
-##To setup this project we need to:
+##To setup this project we need to the free softwares below:
 
 | Software | Description |
 | -------- | ----------- |
@@ -103,23 +103,22 @@ Use the Windows Task Scheduler to run at boot.
 Note: Sometimes the windows occult the folder **"appdata"**.
 
 ###External library NPM at node-red 
-___
-___
 
-Se você precisar de uma biblioteca do NPM nos fluxos do seu projeto em node-red
+If you need a library NPM in your design flows and don't have one in "http://flows.nodered.org". 
+You can include an NPM as below:
 
-Instalar via prompt a biblioteca "NPM" escolhida. Para esse exemplo utilizarei a "https://www.npmjs.com/package/aws-sdk"
+Install via prompt the library "NPM" chosen. For this example I will use the "https://www.npmjs.com/package/aws-sdk"
 
 To install them globally you need to add the -g flag to the install:   
 
     npm install -g aws-sdk
 
-Agora para acessar via node-red você precisa editar o arquivo settings.js. No meu caso fica em:
+Now to access through node-red you need to edit the settings.js file. In my case it is in:
 
     c:\Users\"Nome"\AppData\Roaming\npm\node_modules\node-red\settings.js
     
-Adicionar suporte a biblioteca, adicione seu nome na função functionGlobalContext:
-O meu ficou assim...
+Add support the library, add your name in the function **functionGlobalContext**:
+My file works like this...
 
     functionGlobalContext: {
     // os:require('os'),
@@ -129,28 +128,28 @@ O meu ficou assim...
     aws:require('aws-sdk')
     },
 
-Reiniciar o node-red e para acessar "aws" pelo node-red coloque dentro de um bloco de funções.
+Restart the node-red to access "aws" call it in a function block.
 
-    var aws = global.get('aws'); //Pronto agora utiliza suas funções do aws-sdk...
+    var aws = global.get('aws'); //Now the functions "aws-sdk" are disponible in all flow ...
     aws.config.update({ 
     region: 'us-east-1',
     accessKeyId: 'ALIAITORMWJYRXO00000', 
     secretAccessKey: 'cLuJmpUyg/Khxtb4000000KmqISELc1dW1NoMpfm' 
     });
 ___
-##4-Instalação MongoDB
+##4-Installation MongoDB
 
-Acessar o site [MongoDB][5]
-Baixar o arquivo mongodb-win32-x86_64-2008plus-ssl-3.2.9-signed.msi ou versão mais atual.
-Executar a instalação padrão completa.
+Access the site [MongoDB][5]
+Download file mongodb-win32-x86_64-2008plus-ssl-3.2.9-signed.msi or later version.
+Run the default full installation.
 
-Depois de instalado o MongoDB Criar 3 diretorios para armazenar os dados.
+Once installed MongoDB Create 3 directories to store the data.
 
     mkdir c:\data
     mkdir c:\data\db
     mkdir c:\data\log
         
-Em C:\data criar 1 arquivo de nome "mongod.cfg" contendo:
+In c:\data create one file named "mongod.cfg" containing:
 
     systemLog:
     destination: file
@@ -158,38 +157,34 @@ Em C:\data criar 1 arquivo de nome "mongod.cfg" contendo:
     storage:
     dbPath: c:\data\db
 
-Salvar e fechar...
+Save and close file...
 
-Inicializando Servidor MongoDB "mongod"
+Starting Server MongoDB "**mongod**"
 
-Entrar no diretorio onde esta instalado os binarios. No meu caso é...
+Enter the directory where is installed the binaries and run the command. 
 
-    C:\Program Files\MongoDB\Server\3.2\bin\
+In my case it is ...
 
-Execute o comando:
+    c:\Program Files\MongoDB\Server\3.2\bin>mongod -dbpath c:\data\db
 
-    C:\Program Files\MongoDB\Server\3.2\bin>mongod -dbpath c:\data\db
-
-Em Systemas 32bits
+If your system is Windows 32bits
 
     C:\Program Files\MongoDB\Server\3.2\bin>mongod --journal -dbpath c:\data\db
-
-Se o firewall do Windows solicitar permissão, clique no botão “Permitir Acesso”
-Se aparecer "waiting for connections" ou outra coisa que não seja voltar ao prompt, ele provavelmente esta rodando OK!
-
-Para efetuar uma conexão ao Servidor MongoDB que deixou rodando no passo anterior.
-Deixe o servidor rodando e abra um novo "Prompt" ou "Powershell"
-Entrar no diretorio onde esta instalado os binarios.
-
-    c:\Program Files\MongoDB\Server\3.2\bin\
     
-Execute:
+If the Windows firewall ask for permission, click the button to "Allow Access".
 
-    mongo.exe
-    
+Now open another Windows Prompt or "Powershell"
+
+To make a connection to MongoDB server that left running in the previous step.
+
+Enter the directory where you installed the binaries again and run:
+
+    c:\Program Files\MongoDB\Server\3.2\bin\mongo.exe
+
 Você verá o prompt do mongodb, pronto para receber comandos!
 Para finalizar o Mongodb, pressione as teclas Ctrl + C no terminal onde o mongod está rodando.
 
+___
 ###Testando e criando Coleções ou Tabelas
 
 Entrar no prompt onde executou "mongo" e execute
@@ -207,13 +202,13 @@ Abra um prompt e entre na pasta onde estão os arquivos binarios.
 
     c:\Program Files\MongoDB\Server\3.2\bin\mongod --config "c:\data\mongod.cfg" --install
     
-Em Systemas 32bits
+If your system is Windows 32bits
 
     c:\Program Files\MongoDB\Server\3.2\bin\mongod --journal --config "c:\data\mongod.cfg" --install
     
-Como web admin eu utilizei o mongobooster
+I wear as webadmin the "**mongobooster**"
 
-Como estão estruturados as Coleções ou tabelas desse projeto "parametros" e log_erro.
+Below how are structured as the "Collections" or "Tables" of this project "**parametros**" and "**log_erro**".
 
     db.createCollection('parametros')
     {
@@ -267,7 +262,7 @@ Como estão estruturados as Coleções ou tabelas desse projeto "parametros" e l
     "timestamp": new Date()
     }
     
-E
+And collection log_erro
 
     db.createCollection('log_erro')
     {
