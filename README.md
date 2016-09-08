@@ -181,24 +181,22 @@ Enter the directory where you installed the binaries again and run:
 
     c:\Program Files\MongoDB\Server\3.2\bin\mongo.exe
 
-Você verá o prompt do mongodb, pronto para receber comandos!
-Para finalizar o Mongodb, pressione as teclas Ctrl + C no terminal onde o mongod está rodando.
-
+You will see the prompt mongodb, ready to receive your commands!
 ___
-###Testando e criando Coleções ou Tabelas
+###Testing and creating Collections or Tables
 
-Entrar no prompt onde executou "mongo" e execute
+Enter at the prompt where you run "mongo.exe" run commands below:
 
-    use db 					            <--Cria um banco chamado db
-    db.createCollection('parametros')	<--Cria uma collection chamada parametros
-    db.createCollection('log_erro')		<--Cria uma collection chamada log_erro
-    show dbs 				            <--Monstra nome dos bancos e seus tamanhos
-    show collections			        <--Mostra as coleçoes no banco atual
-    exit					            <--Sai do mongo shell
+    use db 					            <--Create a database called db
+    db.createCollection('parametros')	<--Create a collection called parametros
+    db.createCollection('log_erro')		<--Create a collection called log_erro
+    show dbs 				            <--Show names of banks and their sizes
+    show collections			        <--Displays the collections in the current bank
+    exit					            <--Exit to mongo shell or **Ctrl + C**
 
-Instalando o serviço para o MongoDB iniciar automaticamente no boot do windows.
+Installing the service for MongoDB automatically start on Windows **boot**.
 
-Abra um prompt e entre na pasta onde estão os arquivos binarios.
+Enter the directory where is installed the binaries and run the command.
 
     c:\Program Files\MongoDB\Server\3.2\bin\mongod --config "c:\data\mongod.cfg" --install
     
