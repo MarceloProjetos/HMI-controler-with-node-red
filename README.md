@@ -15,14 +15,14 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 
 | Software | Description |
 | -------- | ----------- |
+| [Java SE][6]  |If you have not installed, First download and install the most suitable for your system. X64 or i586. |
 | [ActiveMQ][2] | MQTT v3.1 support allowing for connections in an IoT environment.  |
-| [Java SE][6]  | If you have not installed, download the most suitable for your system. X64 or i586. |
 | [NodeJS][3]   | Support package npm, is the largest ecosystem of open source libraries in the world. |
 | [Node-Red][1] | Node-RED is a tool for wiring together hardware devices, APIs and online services. |
 | [MongoDB][5]  | It is a graphical tool for control together hardware devices, online services and others NPM library. |
 
 I tested the following procedure in Windows 7 / Windows 8.1 and Windows 10. 
-Although this project work on linux, I make this in Windows because I am using a [PIPO X9][7]
+Although this project works on linux, I make this in Windows because I am using a [PIPO X9][7]
 
 #Install environment 
 
@@ -36,13 +36,13 @@ In a terminal window enter the following command
 
     c:/Development/apache-activemq-5.13.3/bin/activemq start
 
-If an error occurred, Maybe you don't have installed "JAVA SE". Install [**"Java SE Development Kit"**][6].
+If an error occurred, Maybe you don't have installed "JAVA SE". Download and install the [**"Java SE Development Kit"**][6].
 
 For test open a browser **FireFox** or **Chrome** e connect to port 8161 "http://127.0.0.1:8161/admin/"
 
 Password: **admin**   Login: **admin**
 
-Setting to start ActiveMQ on Windows Boot.
+Configuring to start ActiveMQ on Windows Boot.
 
 For systems 64 bits in a terminal window, in root permission, enter the following command
 
@@ -93,22 +93,26 @@ Select all **"Ctrl-a"** --> Copy **"Ctrl-c"** --> Past **"Ctrl-v"** all JSON con
 Click "OK" and position the flow where to find, the better.
 
 Ready the NODE-RED is installed!
+
+Now setting to start the  Windows Boot...
+
+Use the Windows Task Scheduler to run at boot.
+
+    C:\Users\xxxxxxx\AppData\Roaming\npm\node-red
+    
+Note: Sometimes the windows occult the folder **"appdata"**.
+
+###External library NPM at node-red 
 ___
 ___
-
-Agora configurando para iniciar no Boot...
-
-Use o agendador de tarefas do Windows para no boot executar.
-
-    C:\Users\xxxxxxx\AppData\Roaming\npm
-
-###Bibliotecas NPM no node-red
 
 Se você precisar de uma biblioteca do NPM nos fluxos do seu projeto em node-red
-Instalar via prompt a biblioteca "NPM" escolhida. Para esse exemplo utilizarei a "aws-sdk"
 
-    https://www.npmjs.com/package/aws-sdk
-    npm install aws-sdk
+Instalar via prompt a biblioteca "NPM" escolhida. Para esse exemplo utilizarei a "https://www.npmjs.com/package/aws-sdk"
+
+To install them globally you need to add the -g flag to the install:   
+
+    npm install -g aws-sdk
 
 Agora para acessar via node-red você precisa editar o arquivo settings.js. No meu caso fica em:
 
