@@ -620,39 +620,12 @@ $(document).ready(function(){
         }
     });
 
-/*Registrador de Debug pode receber qualquer Holding Register do ladder M2 hoding register*/
-  $('#DebugPOP')
-    .keyboard({
-        layout: 'custom',
-            customLayout: {
-                'default' : [
-                    '7 8 9',
-                    '5 6 7',
-                    '1 2 3',
-                    '{bksp} 0 {a} {c}'                
-            	]
-        	},
-        maxLength : 6, /*numero maximo de carcteres nesse campo*/
-        restrictInput : true, /*entrada de caracters restritas*/
-        useCombos : false,/* espera funcao validade callback para funcionar*/
-        acceptValid : true,
-        validate : function(keyboard, value, isClosing){
-          return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
-        },
-        accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"DebugPOP\":" + el.value + "}");
-          //window.alert(el.value); /*debug para mostrar valor*/
-          message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
-          client.send(message, function(err, result) {
-            if (err) {
-              window.alert("erro");
-            } 
-          });
-        },
-        initialized   : function(e, keyboard, el) {
-          el.value = '0';
-        }
-    });
+/* botão de reset do parametros e da coleção parametros*/
+    $("#botao_Reset_parametros").button({
+               icons: {
+                  primary: "ui-icon-refresh"
+               }
+            });
 
 /************************ Caixa de Dialogo *****************************/
 /*NÃO USADO AINDA*/
