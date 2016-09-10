@@ -11,6 +11,12 @@ This project is an HTML page that accesses a "MQTT" server, that accesses the "N
 #Node-Red flow
 ![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/flow%20node-red.png)
 
+#About this Project:
+I will combine my passion for computers and electronics in this project, but I believe that many people who try to do something like have same difficulties with with installation tutorials and basic components. Besides at first step with new softwares.
+
+There have already been several challenges and problems with this project, which is why I thought it would be helpful to share my experiences with the world.
+If you have ideas, please reach out!
+
 ##To setup this project we need to the free softwares below:
 
 | Software | Description |
