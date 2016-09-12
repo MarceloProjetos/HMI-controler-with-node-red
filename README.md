@@ -279,9 +279,38 @@ And collection log_erro
 ___
 ##5-After installation we will Configure node-red access **settings.js**
 
+In this application we have entered with the "name" or "ALIAS" in the browser and DNS server calls the IP address of the "node-red".
+
+For these changes need to change the file [settings.js][9].
+
+The first thing that changed is the node-red port 
+
+    uiPort: process.env.PORT || **80,**
+    
+With this change node-red flow it's at:
+
+    http://127.0.0.1:80
+    
+The second change was uncomment the line 
+
+    httpAdminRoot: '/admin',
+    
+And now to access your **node-red flow** enter in:
+
     http://127.0.0.1:80/admin/
 
+Save the file in my case is
+
     c:\Users\marcelo.miranda\AppData\Roaming\npm\node_modules\node-red\settings.js
+
+And now it is easy to configure DNS for directly access your application. And now to access your flow is "/admin"!
+
+Now you can create an ALIAS on your DNS server for the IP Project.
+
+| NAME          |TYPE           | TARGET        |
+| --------      | -----------   |-----------    |
+| example.com   |      ALIAS    | 192.168.0.X   |
+
 
     node -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" your-password-here
 ___
@@ -299,3 +328,4 @@ pxa255@gmail.com
 [6]:http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html
 [7]:http://www.pipo-store.com/pipo-x9-tv-box-8-9-inch-mini-pc.html
 [8]:https://www.python.org/downloads/release/python-2712/
+[9]:https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/NodeRed/settings.js
