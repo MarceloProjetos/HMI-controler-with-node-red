@@ -299,7 +299,7 @@ And now to access your **node-red flow** enter in:
 
     http://127.0.0.1:80/admin/
 
-Save the file in my case is
+Now save the "settings.js" file in my case is
 
     c:\Users\marcelo.miranda\AppData\Roaming\npm\node_modules\node-red\settings.js
 
