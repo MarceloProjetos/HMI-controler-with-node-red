@@ -77,6 +77,7 @@ ___
 Run the following command in the root directory of your Node-RED install
 
     npm install -g --unsafe-perm node-red
+    npm install -g --unsafe-perm bcryptjs
 
 Wait finish installation...
 
@@ -275,7 +276,14 @@ And collection log_erro
     	"log_erro_masagens": {
     	}
     }
+___
+##5-After installation we will Configure node-red access **settings.js**
 
+    http://127.0.0.1:80/admin/
+
+    c:\Users\marcelo.miranda\AppData\Roaming\npm\node_modules\node-red\settings.js
+
+    node -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" your-password-here
 ___
 #Author
 
