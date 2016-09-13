@@ -314,6 +314,8 @@ Now you can create an ALIAS on your DNS server for the IP Project.
 **PASSWORD**
 To protect your **node-red flow**, you can enable password. 
 
+![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/node-red_login.png)
+
 The first thing enter the **node_modules** directory:
 
     c:\Users\marcelo.miranda\AppData\Roaming\npm\node_modules
