@@ -176,7 +176,7 @@ In my case it is ...
 
 If your system is Windows 32bits
 
-    C:\Program Files\MongoDB\Server\3.2\bin>mongod --journal -dbpath c:\data\db
+    C:\Program Files\MongoDB\Server\3.2\bin>mongod --journal --storageEngine=mmapv1 -dbpath c:\data\db
     
 If the Windows firewall ask for permission, click the button to "Allow Access".
 
@@ -284,6 +284,9 @@ There are two ways to access a page on the Internet: the domain name or IP addre
 For that you enable DNS or "domain name" we need to edit the file [settings.js][9].
 
     c:\Users\marcelo.miranda\AppData\Roaming\npm\node_modules\node-red\settings.js
+or 
+
+    c:\Users\marcelo.miranda\.node-red\settings.js
 
 The first thing that changed is the node-red port. Change 8080 to 80 as below:
 
