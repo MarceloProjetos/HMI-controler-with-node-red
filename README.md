@@ -313,6 +313,7 @@ Now you can create an ALIAS on your DNS server for the IP Project.
 
 ___
 **PASSWORD**
+
 To protect your **node-red flow**, you can enable password. 
 
 The first thing enter the **node_modules** directory:
