@@ -311,10 +311,9 @@ Now you can create an ALIAS on your DNS server for the IP Project.
 | --------      | -----------   |-----------    |
 | example.com   |      ALIAS    | 192.168.0.X   |
 
+___
 **PASSWORD**
 To protect your **node-red flow**, you can enable password. 
-
-![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/node-red_login.png)
 
 The first thing enter the **node_modules** directory:
 
@@ -326,7 +325,7 @@ You need to make a key with this commnand and put your **password**:
 
 Now save result number and edit the file [settings.js][9] again.
 
-Uncomment the lines as bellow and place the generated password on the line.
+Find and uncomment the lines as bellow and place the generated password on the line.
 
     adminAuth: {
         type: "credentials",
@@ -339,9 +338,11 @@ Uncomment the lines as bellow and place the generated password on the line.
 
 Now save the "settings.js" and restart **node-red**
 
-when you come back to:
+When you come back to:
 
     http://127.0.0.1:80/admin/
+
+![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/node-red_login.png)
 
 Put username: "admin" and password: 
 
