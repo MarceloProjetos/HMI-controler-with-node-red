@@ -277,31 +277,31 @@ And collection log_erro
     	}
     }
 ___
-##5-After installation we will Configure node-red access **settings.js**
+##5-Configuring access of node-red across settings.js
 
-In this application we have entered with the "name" or "ALIAS" in the browser and DNS server calls the IP address of the "node-red".
+**DNS**
+There are two ways to access a page on the Internet: the domain name or IP address of the servers on which it is hosted. In our case "Node-RED."
+For that you enable DNS or "domain name" we need to edit the file [settings.js][9].
 
-For these changes need to change the file [settings.js][9].
+    c:\Users\marcelo.miranda\AppData\Roaming\npm\node_modules\node-red\settings.js
 
-The first thing that changed is the node-red port 
+The first thing that changed is the node-red port. Change 8080 to 80 as below:
 
-    uiPort: process.env.PORT || **80,**
-    
-With this change node-red flow it's at:
-
-    http://127.0.0.1:80
+    uiPort: process.env.PORT || 80,
     
 The second change was uncomment the line 
 
     httpAdminRoot: '/admin',
     
+Now save the "settings.js" and restart **node-red**
+    
+With this change your page application its goes::
+
+    http://127.0.0.1:80
+    
 And now to access your **node-red flow** enter in:
 
     http://127.0.0.1:80/admin/
-
-Now save the "settings.js" file in my case is
-
-    c:\Users\marcelo.miranda\AppData\Roaming\npm\node_modules\node-red\settings.js
 
 And now it is easy to configure DNS for directly access your application. And now to access your flow is "/admin"!
 
@@ -311,8 +311,38 @@ Now you can create an ALIAS on your DNS server for the IP Project.
 | --------      | -----------   |-----------    |
 | example.com   |      ALIAS    | 192.168.0.X   |
 
+**PASSWORD**
+To protect your **node-red flow**, you can enable password. 
+
+The first thing enter the **node_modules** directory:
+
+    c:\Users\marcelo.miranda\AppData\Roaming\npm\node_modules
+
+You need to make a key with this commnand and put your **password**:
 
     node -e "console.log(require('bcryptjs').hashSync(process.argv[1], 8));" your-password-here
+
+Now save result number and edit the file [settings.js][9] again.
+
+Uncomment the lines as bellow and place the generated password on the line.
+
+    adminAuth: {
+        type: "credentials",
+        users: [{
+           username: "admin",
+            password: "your generated password",
+            permissions: "*"
+        }]
+    },
+
+Now save the "settings.js" and restart **node-red**
+
+when you come back to:
+
+    http://127.0.0.1:80/admin/
+
+Put username: "admin" and password: 
+
 ___
 #Author
 
