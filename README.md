@@ -280,8 +280,9 @@ ___
 ##5-Configuring access of node-red across settings.js
 
 **DNS**
-There are two ways to access a page on the Internet: the domain name or IP address of the servers on which it is hosted. In our case "Node-RED."
-For that you enable DNS or "domain name" we need to edit the file [settings.js][9].
+There are two ways to access a page on the Internet: the domain name "DNS" or "IP ADDRESS" of the servers on which it is hosted. In our case "Node-RED."
+
+For your application to make a simple DNS access or "IP ADDRESS". We need to edit the [settings.js][9] file.
 
     c:\Users\marcelo.miranda\AppData\Roaming\npm\node_modules\node-red\settings.js
 or 
@@ -306,13 +307,13 @@ And now to access your **node-red flow** enter in:
 
     http://127.0.0.1:80/admin/
 
-And now it is easy to configure DNS for directly access your application. And now to access your flow is "/admin"!
+And now it is easy to configure your DNS server, for directly access your application. And remember now to access your flow is "IP/admin"!
 
 Now you can create an ALIAS on your DNS server for the IP Project.
 
-| NAME          |TYPE           | TARGET        |
+| NAME          |   TYPE        |   TARGET      |
 | --------      | -----------   |-----------    |
-| example.com   |      ALIAS    | 192.168.0.X   |
+| example.com   |      A        | 192.168.0.X   |
 
 ___
 **PASSWORD**
