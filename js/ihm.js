@@ -208,7 +208,7 @@ $(document).ready(function(){
           return value.length >= 1; /*Somente valido se conter pelo menos 1 numero de caracteres*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"PrsCiclosUnid_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"PrsCiclosUnid_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -242,7 +242,7 @@ $(document).ready(function(){
             return value.length >= 1; /*Somente valido se esse campo conter 1 caracter*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"NovoPrsCiclosUnd_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"NovoPrsCiclosUnd_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -290,7 +290,7 @@ $(document).ready(function(){
             return value.length >= 3; /*Somente valido se esse campo conter 3 caracter*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"EncFactor_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"EncFactor_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -324,7 +324,7 @@ $(document).ready(function(){
             return value.length >= 2; /*Somente valido se esse campo conter 2 caracteres*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"TamanhoRealPeca_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"TamanhoRealPeca_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -358,7 +358,7 @@ $(document).ready(function(){
           return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"TamanhoDesejadoPeca_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"TamanhoDesejadoPeca_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -373,11 +373,47 @@ $(document).ready(function(){
     });
 
 /* botão que recalcula o fator de encoder Calcula a proporção entre #TamanhoDesejadoPeca e #TamanhoRealPeca e gera um novo #FatorEncoder*/
-    $("#botao_RecalcularFator").button({
-               icons: {
-                  primary: "ui-icon-refresh"
-               }
-            });
+  $("#botao_RecalcularFator").button({
+      icons: {
+        primary: "ui-icon-arrowrefresh-1-e"
+      }
+  });
+
+  $("#botao_RecalcularFator").mouseup(function(event){
+      $("#dialog").dialog("open");
+      event.preventDefault();
+  });
+
+  /************************ Caixa de Dialogo *****************************/
+/*NÃO USADO AINDA*/
+    $("#dialog").dialog({
+        autoOpen: false,
+        width: 400,
+        hide : "explode",
+        modal : true, /*Bloqueia a tela até ter uma resposta */
+        buttons: [{
+            text: "Ok",
+            click: function(data) {
+              message = new Messaging.Message("{\"RecalcularFator\":" + "1" + "}");
+              message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
+              client.send(message, function(err, result) {
+                if (err) {
+                  window.alert('erro');
+                } 
+              });
+              $(this).dialog("close");
+            }
+            }, 
+            {
+            text: "Cancel",
+            click: function() {
+                $(this).dialog("close");
+            }
+        }]
+    });
+
+    
+/************************ FIM *****************************/
 
 /*Velocidade maxima que o servo motor vai atingir no modo automatico M14*/
   $('#VelMaxServoAuto')
@@ -399,7 +435,7 @@ $(document).ready(function(){
           return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"AplanVelAuto_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"AplanVelAuto_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -433,7 +469,7 @@ $(document).ready(function(){
             return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"AplanVelMan_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"AplanVelMan_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -467,7 +503,7 @@ $(document).ready(function(){
           return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"AplanPasso_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"AplanPasso_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -537,7 +573,7 @@ $(document).ready(function(){
           return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"EncPerim_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"EncPerim_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -572,7 +608,7 @@ $(document).ready(function(){
           return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"EncResol_KEYBOARD\":" + el.value + "}");
+          message = new Messaging.Message("{\"EncResol_KEYBOARD\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -606,7 +642,7 @@ $(document).ready(function(){
           return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
         },
         accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"MbPosAtual\":" + el.value + "}");
+          message = new Messaging.Message("{\"MbPosAtual\":" + parseInt(el.value) + "}");
           //window.alert(el.value); /*debug para mostrar valor*/
           message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
           client.send(message, function(err, result) {
@@ -626,41 +662,6 @@ $(document).ready(function(){
                   primary: "ui-icon-refresh"
                }
             });
-
-/************************ Caixa de Dialogo *****************************/
-/*NÃO USADO AINDA*/
-    $("#dialog").dialog({
-        autoOpen: false,
-        width: 400,
-        buttons: [{
-            text: "Ok",
-            click: function() {
-                $(this).dialog("close");
-            }
-        }, {
-            text: "Cancel",
-            click: function() {
-                $(this).dialog("close");
-            }
-        }]
-    });
-
-    // Link to open the dialog
-    $("#dialog-link").click(function(event) {
-        $("#dialog").dialog("open");
-        event.preventDefault();
-    });
-
-    // Hover states on the static widgets
-    $("#dialog-link, #icons li").hover(
-        function() {
-            $(this).addClass("ui-state-hover");
-        },
-        function() {
-            $(this).removeClass("ui-state-hover");
-        }
-    );
-
 
 /************************ - ACTIVEMQ - *********************************/
 

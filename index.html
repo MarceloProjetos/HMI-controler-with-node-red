@@ -129,12 +129,18 @@
                                             <p><h2 style="text-decoration: underline;">Tamanho da peça.</h2></p>
                                             <p>Fator de correção do encoder.</p>
                                             <input class="input" id="FatorEncoder" type="text"/>
-                                            <p>Tamanho real da peça "mm"</p>
+                                            <p>Tamanho real da peça "mm"?</p>
                                             <input class="input" id="TamanhoRealPeca" type="text"/>
-                                            <p>Tamanho que deveria ser a peça</p>
+                                            <p>Tamanho que a peça deveria ter?</p>
                                             <input class="input" id="TamanhoDesejadoPeca" type="text"/>
                                             <p>Corrigir fator de encoder</p>
-                                            <button class="btn" type="submit" id="botao_RecalcularFator">Recalcular Fator</button>
+
+											<button class="btn" type="submit" id="botao_RecalcularFator">Recalcular Fator</button>
+											
+											<div id="dialog" title="Recalcular Fator do Encoder?">
+												<p>Você quer realmente alterar o fator de encoder da máquina?</p>
+											</div>
+											
                                         </td>
                                         <td style="width: 260px; padding:30px; border-right: solid 1px #ccc;">
                                             <p><h2 style="text-decoration: underline;">Servo motor.</h2></p>
@@ -185,21 +191,6 @@
 		    </table>
         </div>
     </div>
-    <!-- Highlight / Error -->
-    <!-- <h2 class="demoHeaders">Highlight / Error</h2>
-    <div class="ui-widget">
-        <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
-            <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-                <strong>Hey!</strong> Sample ui-state-highlight style.</p>
-        </div>
-    </div>
-    <br>
-    <div class="ui-widget">
-        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-            <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-                <strong>Alert:</strong> Sample ui-state-error style.</p>
-        </div>
-    </div>-->
 
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -208,5 +199,4 @@
     <script src="js/mqttws31.js"></script>
     <script src="js/ihm.js"></script>
 </body>
-
 </html>

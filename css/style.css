@@ -17,7 +17,7 @@ body{
 -----------------------------------------------------------------------------*/
 .middle {
     width: 100%;
-    padding: 0 0 60px;
+    padding: 0 0 0px;
     position: relative;
 }
 .middle:after {
@@ -211,31 +211,31 @@ table {
 #plano1{
     position: absolute;
     left: 5px;
-    bottom: 13%;
+    bottom: 5px;
     z-index: 1;
 }
 #plano2{ /*FIXO corpo da planadora images/maq-aplan-esq-tampa-fechada.png*/
     position: absolute;
-    left: 324px;
-    bottom: 200px;
+    left: 335px;
+    bottom: 135px;
     z-index: 2;
 }
 #plano3{ /*FIXO Martelo prensa images/maq-prs-martelo.png*/
     position: absolute;
     left: 692px;
-    bottom: 290px;
+    bottom: 225px;
     z-index: 2;
 }
 #plano4{ /*FIXO corpo da prensa images/maq-prs-corpo.png*/
     position: absolute;
     left: 650px;
-    bottom: 72px;
+    bottom: 6px;
     z-index: 2;
 }
 #plano5{ /*Liga/desliga Desbobinador*/
     position: absolute;
     left: 5px;
-    bottom: 320px;
+    bottom: 260px;
     z-index: 3;
     opacity: 0.8;
 }
@@ -247,7 +247,7 @@ table {
 #plano6{  /*Avança e recua chapa no alimentador*/
     position: absolute;
     left: 324px;
-    bottom: 313px;
+    bottom: 250px;
     z-index: 4;
     opacity: 0.8;
 }
@@ -257,7 +257,7 @@ table {
 #plano6B{  /*Avança e recua chapa no alimentador*/
     position: absolute;
     left: 460px;
-    bottom: 313px;
+    bottom: 250px;
     z-index: 4;
     opacity: 0.8;
 }
@@ -267,7 +267,7 @@ table {
 #plano7{  /*Sobe a tampa da Aplanadora*/
     position: absolute;
     left: 520px;
-    bottom: 195px;
+    bottom: 130px;
     z-index: 5;
     opacity: 0.8;
 }
@@ -277,7 +277,7 @@ table {
 #plano8{  /*Descer a tampa da Aplanadora*/
     position: absolute;
     left: 520px;
-    bottom: 120px;
+    bottom: 50px;
     z-index: 5;
     opacity: 0.8;
 }
@@ -287,7 +287,7 @@ table {
 #plano9{  /*Prensa Funcionando*/
     position: absolute;
     left: 705px;
-    bottom: 340px;
+    bottom: 275px;
     z-index: 5;
     opacity: 0.8;
 }
