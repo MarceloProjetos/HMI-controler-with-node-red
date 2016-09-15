@@ -734,6 +734,8 @@ $(document).ready(function(){
           }
           if (msg.EncFactor !== undefined){ 		//<--Fator de encoder M20
           	$('#FatorEncoder').val(msg.EncFactor);
+            $('#TamanhoDesejadoPeca').val(0);
+            $('#TamanhoRealPeca').val(0);
           	break;
           }
           if (msg.AplanPasso !== undefined){ 		//<--Passo da Aplanadora M18
@@ -756,12 +758,11 @@ $(document).ready(function(){
           	$('#NumeroCiclosFaltantes').val(msg.NovoPrsCiclosUnd);
           	break;
           }  
-          if (1){
-          	var m = "<p><span class=\"ui-icon " + (msg.type === "warning" ? "ui-icon-alert" : msg.type === "error" ? "ui-icon-circle-close" : "ui-icon-info") + "\" style=\"float: left; margin-right: .3em;\"></span><strong>Alerta:</strong>" + msg.message + "</p>";
-          	//console.log(m);
-            $('#Mensagem').attr('class', (msg.type === "error" ? 'ui-state-error' : 'ui-state-highlight') + ' ui-corner-all');
-            $('#Mensagem').html(m);
-            break;
+          if (msg.message !== undefined){
+          	var m = "<p><span class=\"ui-icon " + (msg.type === "warning" ? "ui-icon-alert" : msg.type === "error" ? "ui-icon-circle-close" : "ui-icon-info") + "\" style=\"float: left; margin-right: .3em;\"></span><strong>Alerta:</strong>" + (msg.message || '') + "</p>";
+              $('#Mensagem').attr('class', (msg.type === "error" ? 'ui-state-error' : 'ui-state-highlight') + ' ui-corner-all');
+              $('#Mensagem').html(m);
+          break;
           }
         } 
       }

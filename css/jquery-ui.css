@@ -1213,13 +1213,11 @@ body .ui-tooltip {
 .ui-widget-overlay {
 	background: #5c5c5c;
 	opacity: .8;
-	filter: Alpha(Opacity=80); /* support: IE8 */
 }
 .ui-widget-shadow {
 	margin: -7px 0 0 -7px;
 	padding: 7px;
 	background: #cccccc;
 	opacity: .6;
-	filter: Alpha(Opacity=60); /* support: IE8 */
 	border-radius: 8px;
 }

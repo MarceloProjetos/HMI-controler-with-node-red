@@ -191,7 +191,6 @@ a.onoff + span {
 table {
     border-collapse: collapse;
     width: 100%;
-    align:left; 
     table-layout:fixed;
 }
 .img-hor {          /*Espelha horizontalmente uma imagem*/
