@@ -27,6 +27,14 @@ If you have ideas, please reach out!
 | [Node-Red][1] | Node-RED is a tool for wiring together hardware devices, APIs and online services. |
 | [MongoDB][5]  | It is a graphical tool for control together hardware devices, online services and others NPM library. |
 
+Other software I use for development are:
+
+| Software    | Description |
+|       --------    | ----------- |
+| [Tortoisegit][10] |TortoiseGit provides overlay icons showing the file status, context menu for Git and much more! |
+| [7-zip][11]       | 7-Zip is a file archiver with a high compression ratio. |
+| [Sublimetext][12] | Sublime Text is a sophisticated text editor for code, markup and prose. |
+
 I tested the following procedure in Windows 7 / Windows 8.1 and Windows 10. 
 Although this project works on linux, I make this in Windows because I am using a [PIPO X9][7]
 
@@ -367,3 +375,6 @@ pxa255@gmail.com
 [7]:http://www.pipo-store.com/pipo-x9-tv-box-8-9-inch-mini-pc.html
 [8]:https://www.python.org/downloads/release/python-2712/
 [9]:https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/NodeRed/settings.js
+[10]:https://tortoisegit.org/
+[11]:http://www.7-zip.org/
+[12]:https://www.sublimetext.com/
