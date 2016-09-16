@@ -27,13 +27,13 @@ If you have ideas, please reach out!
 | [Node-Red][1] | Node-RED is a tool for wiring together hardware devices, APIs and online services. |
 | [MongoDB][5]  | It is a graphical tool for control together hardware devices, online services and others NPM library. |
 
-Other software I use for development are:
+Other software can you use for your development are:
 
 | Software    | Description |
 |       --------    | ----------- |
 | [Tortoisegit][10] |TortoiseGit provides overlay icons showing the file status, context menu for Git and much more! |
 | [7-zip][11]       | 7-Zip is a file archiver with a high compression ratio. |
-| [Sublimetext][12] | Sublime Text is a sophisticated text editor for code, markup and prose. |
+| [Sublimetext][12] | Sublime Text is a sophisticated text editor for code, markup and prose. Use [packagecontrol][13] together |
 
 I tested the following procedure in Windows 7 / Windows 8.1 and Windows 10. 
 Although this project works on linux, I make this in Windows because I am using a [PIPO X9][7]
@@ -324,7 +324,7 @@ Now you can create an ALIAS on your DNS server for the IP Project.
 | example.com   |      A        | 192.168.0.X   |
 
 ___
-**PASSWORD**
+##6- PASSWORD in node-red flow
 
 To protect your **node-red flow**, you can enable password. 
 
@@ -358,6 +358,11 @@ When you come back to:
 ![alt tag](https://github.com/MarceloProjetos/HMI-controler-with-node-red/blob/master/images/node-red_login.png)
 
 Put username: "admin" and password: 
+___
+##7-GULP Automation
+
+Gulp is a toolkit that helps you automate painful or time-consuming tasks in your development.
+
 
 ___
 #Author
@@ -378,3 +383,4 @@ pxa255@gmail.com
 [10]:https://tortoisegit.org/
 [11]:http://www.7-zip.org/
 [12]:https://www.sublimetext.com/
+[13]:https://packagecontrol.io/installation
