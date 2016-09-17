@@ -1,4 +1,4 @@
-/* keyboard - jQuery UI Widget */
+/* keyboard - jQuery UI Widget */ 
 .ui-keyboard { text-align: center; padding: .3em; position: absolute; left: 0; top: 0; z-index: 16000; }
 .ui-keyboard-has-focus { z-index: 16001; }
 .ui-keyboard div { font-size: 1.1em; }

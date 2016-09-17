@@ -1,0 +1,44 @@
+{
+  "name": "hmicontroller",
+  "version": "1.0.0",
+  "description": "HMI Controller with Node-Red and mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarceloProjetos/HMI-controler-with-node-red.git"
+  },
+  "keywords": [
+    "hmi",
+    "node-red",
+    "modbus",
+    "mongodb",
+    "plc"
+  ],
+  "author": "marcelo miranda",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MarceloProjetos/HMI-controler-with-node-red/issues"
+  },
+  "homepage": "https://github.com/MarceloProjetos/HMI-controler-with-node-red#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-cli": "^1.2.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-dest": "^0.2.3",
+    "gulp-strip-comments": "^2.4.3",
+    "gulp-strip-css-comments": "^1.2.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.9"
+  },
+  "dependencies": {
+    "node-red": "^0.14.6",
+    "node-red-contrib-modbustcp-no-pooling": "^0.1.7",
+    "node-red-dashboard": "^2.0.2",
+    "node-red-node-mongodb": "0.0.7"
+  }
+}

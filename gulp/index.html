@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Controle da Aplanadora N">
+    <meta name="author" content="Marcelo Miranda">
+    <meta name="keywords" content="">
+
+    <title>Controle Aplanadora N</title>
+
+
+    <link href="css/hmi.min.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.keyboard.js"></script>
+    <script src="js/jquery.mousewheel.js"></script>
+    <script src="js/hmi.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Principal</a>
+                    </li>
+                    <li><a href="#tabs-2">Manutenção</a>
+                    </li>
+                </ul>
+                <div id="tabs-1" onload="init()">
+                    <div class="middle">
+                        <div class="container" >
+                            <table>
+                            <tr>
+                                <th style="width:860px">
+                                    <div class="ui-widget">
+                                        <p>Layout da Maquina.</p> 
+                                    </div>
+                                </th>
+                                <th style="width:300px">
+                                    <div class="ui-widget">
+                                        <p>Ciclos OK:
+                                        <input id="ciclosOK" title="Ciclos sem erro"> </p>
+                                    </div>
+                                </th>
+                            </tr>
+                            
+                            <tr>
+                            <td style="width: 860px">
+                                <div class="ui-widget">
+                                    <!-- Imagem de fundo -->
+                                    <div id="background">
+                                    	<img src="images/bg01.png" alt="Layout Alimentadora" width="860" height="362"/>
+                                    </div>
+                                    <div id="plano1">
+                                    	<img src="images/maq-desbob.png" class="img-hor" alt="Alimentador"   width="288" height="300"/>
+                                    	<img src="images/maqaplanesqcorpo.png" 			 alt="BasePlanadora" width="265" height="243"/>	
+                                    </div>
+									<div id="plano2">
+                                    	<img src="images/maq-aplan-esq-tampa-fechada.png" alt="Aplan-esq-tampa"   width="177" height="133"/>
+                                    </div>
+                                    <div id="plano3">
+                                    	<img src="images/maq-prs-martelo.png" alt="Aplan-esq-tampa" width="113" height="128"/>
+                                    </div>
+                                    <div id="plano4">
+                                    	<img src="images/maq-prs-corpo.png" alt="Aplan-esq-tampa" width="198" height="350"/>
+                                    </div>
+                                    <!-- Botoes de comando manual da maquina -->
+									<div id="plano5">
+                                    	<a href='#' id='Desbobinador' valor='{"led":-1}'><img src="images/ihm-ent-desbob-on.png" alt="Liga Desbobinador" width="100" height="100" title="Ligar e Desligar Desbobinador"/></a>
+                                    </div>
+                                    <div id="plano6">
+                                    	<a href='#' id='recuaPerfil' valor='{"led":-1}'><img src="images/cmd-aplan-perfil-recua.png" alt="recuaPerfil" width="100" height="100" title="Recuar chapa"/></a>
+                                    </div>
+                                    <div id="plano6B">
+                                    	<a href='#' id='avancaPerfil' valor='{"led":-1}'><img src="images/cmd-aplan-perfil-avanca.png" alt="avancaPerfil" width="100" height="100"/></a>
+                                    </div>
+                                    <div id="plano7">
+                                    	<a href='#' id='abrirTampa' valor='{"led":-1}'><img src="images/cmd-aplan-tampa-abrir.png" alt="abrirTampa" width="70" height="65" title="Abrir Tampa da Aplanadora"/></a>
+                                    </div>
+                                    <div id="plano8">
+                                    	<a href='#' id='fecharTampa' valor='{"led":-1}'><img src="images/cmd-aplan-tampa-fechar.png" alt="fecharTampa" width="70" height="65" title="Fechar Tampa da Aplanadora"/></a>
+                                    </div>
+                                    <div id="plano9">
+                                    	<a href='#' id='ligarPrensa' valor='{"led":-1}'><img src="images/cmd-prensa-ligar.png" alt="ligarPrensa" width="80" height="80" title="Ligar motor da Prensa"/></a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width: 300px">
+                                <div id=botoesGrandes>
+                                    <button class="btn" type="submit" id="botao_Parar_Maquina">
+                                        Parar a Maquina
+                                    </button>
+                                </div>
+                                <div id=botoesGrandes>
+                                    <button class="btn" type="submit" id="botao_Manual">
+                                        Modo Manual
+                                    </button>
+                                </div>
+                                <div id=botoesGrandes>
+                                    <button class="btn" type="submit" id="botao_Produzir">
+                                        Iniciar Produção
+                                    </button>
+                                </div>
+                            </td>
+                            </tr>
+                            </table>                              	
+                        </div>
+                    </div>
+                </div>
+                <div id="tabs-2">
+                    <div class="middle">
+                        <div class="container">
+                            <div class="ui-widget">
+                                <table>
+                                    <tr>
+                                        <td style="width: 260px; border-right: solid 1px #ccc;">
+                                            <p><h2 style="text-decoration: underline;">Prensa.</h2></p>
+                                            <p>Numero de ciclos da prensa.</p>
+                                            <input class="input" id="NumeroCiclosPrensa" type="text"/>
+                                            <p>Lubrificação a cada.</p>
+                                            <input class="input" id="NumeroCiclosFaltantes" type="text"/>
+                                            <p>Testar Lubrificação da prensa</p>
+                                            <button class="btn" type="submit" id="botao_lubrificar" >Lubrificar</button>
+                                            <p>Motor da Prensa</p>
+                                            <button class="btn" type="submit" id="botao_InverterRotacao">Inverter Rotação</button>
+
+                                        </td>
+                                        <td style="width: 260px; padding:30px; border-right: solid 1px #ccc;">
+                                            <p><h2 style="text-decoration: underline;">Tamanho da peça.</h2></p>
+                                            <p>Fator de correção do encoder.</p>
+                                            <input class="input" id="FatorEncoder" type="text"/>
+                                            <p>Tamanho medido da peça "mm"?</p>
+                                            <input class="input" id="TamanhoRealPeca" type="text"/>
+                                            <p>Tamanho que a peça deveria ter?</p>
+                                            <input class="input" id="TamanhoDesejadoPeca" type="text"/>
+                                            <p>Corrigir fator de encoder</p>
+
+											<button class="btn" type="submit" id="botao_RecalcularFator">Recalcular Fator</button>
+											
+											<div id="dialog" title="Recalcular Fator do Encoder?">
+												<p>Você quer realmente alterar o fator de encoder da máquina?</p>
+											</div>
+											
+                                        </td>
+                                        <td style="width: 260px; padding:30px; border-right: solid 1px #ccc;">
+                                            <p><h2 style="text-decoration: underline;">Servo motor.</h2></p>
+                                            <p>Veloc. Auto maxima em %</p>
+                                            <input class="input" id="VelMaxServoAuto" type="text"/>
+                                            <p>Veloc. Manual maxima em %</p>
+                                            <input class="input" id="VelMaxServoManual" type="text"/>
+                                            <p>Passo da Aplanadora "mm"</p>
+                                            <input class="input" id="PassoAplanadora" type="text"/>
+                                            <p>Erro de posicionamento</p>
+                                            <input class="input" id="MaqUItErroPos" type="text"/>
+                                        </td>
+                                        <td style="width: 260px; padding:30px;">
+                                            <p><h2 style="text-decoration: underline;">Encoder.</h2></p>
+                                            <p>Perimetro (mm).</p>
+                                            <input class="input" id="Perimetro" type="text"/>
+                                            <p>Resolução (pulsos/volta).</p>
+                                            <input class="input" id="Resolucao" type="text"/>
+                                            <p>Valor atual.</p>
+                                            <input class="input" id="EncoderValor" type="text"/>
+                                            <p>Reinstall factory settings.</p>
+                                            <button class="btn" type="submit" id="botao_Reset_parametros">Reset</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rodape">
+        <div class="ui-widget">
+	        <table>
+    		    <tr>
+        		  	<td style="width: 120px;"> 
+        		  		<a href="#" id="LigarMaquina" class="onoff" onclick="" valor=0> &#xF011; </a>
+        		  </td>
+        		        <td style="width: 100%;">
+        		            <div id="Mensagem" class="ui-state-error ui-corner-all" style="padding: 0 .8em;">
+        		                <p ><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+        		                    <strong>Alerta:</strong> Maquina desligada.</p>
+        		            </div>
+        		  </td>
+    		    </tr>
+		    </table>
+        </div>
+    </div>
+
+
+</body>
+</html>

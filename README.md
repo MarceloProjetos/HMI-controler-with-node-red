@@ -361,9 +361,38 @@ Put username: "admin" and password:
 ___
 ##7-GULP Automation
 
+npm init
+
+npm install gulp --save-dev
+
+npm install
+
+|-- app
+|  |-- bower_modules
+|  |-- assets
+|  |  |-- styles
+|  |  |  |-- style_one.scss
+|  |  |  |-- style_two.scss
+|  |  |-- scripts
+|  |  |  |-- script_one.coffee
+|  |  |  |-- script_two.coffee
+|  |  |-- images
+|  |-- index.html
+|-- dist
+|  |-- assets
+|  |  |-- styles
+|  |  |  |-- main.min.css
+|  |  |-- scripts
+|  |  |  |-- main.min.js
+|  |  |-- images
+|  |-- index.html
+|-- node_modules
+
 Gulp is a toolkit that helps you automate painful or time-consuming tasks in your development.
 
+npm install --save-dev gulp-cssmin gulp-watch gulp-concat gulp-strip-css-comments
 
+npm install node-red-dashboard --save
 ___
 #Author
 
