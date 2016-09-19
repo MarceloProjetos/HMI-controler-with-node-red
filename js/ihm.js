@@ -195,7 +195,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -205,7 +205,7 @@ $(document).ready(function(){
         useCombos : false,/* espera funcao validade callback para funcionar*/
         acceptValid : true,
         validate : function(keyboard, value, isClosing){
-          return value.length >= 1; /*Somente valido se conter pelo menos 1 numero de caracteres*/
+          return value.length >= 2; /*Somente valido se conter pelo menos 1 numero de caracteres*/
         },
         accepted : function(e, keyboard, el) {
           message = new Messaging.Message("{\"PrsCiclosUnid_KEYBOARD\":" + parseInt(el.value) + "}");
@@ -229,7 +229,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -277,7 +277,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -300,7 +300,7 @@ $(document).ready(function(){
           });
         },
         initialized   : function(e, keyboard, el) {
-          el.value = '9998';
+          el.value = '9996';
         }
     });
 
@@ -311,7 +311,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -345,7 +345,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -380,13 +380,29 @@ $(document).ready(function(){
   });
 
   $("#botao_RecalcularFator").mouseup(function(event){
-      $("#dialog").dialog("open");
-      event.preventDefault();
+  	x = $('#TamanhoDesejadoPeca').val();
+  	y = $('#TamanhoRealPeca').val();
+  	if ((x>=2)&&(y>=2)){
+      	$("#dialog_fator").dialog("open");
+      	event.preventDefault();
+    }else if ((x<=2)&&(y>=2)){
+    	$('#TamanhoDesejadoPeca').effect( "highlight", {}, 350 );
+    	$('#TamanhoDesejadoPeca').effect( "bounce", {times:4}, 350 );
+    }else if ((x>=2)&&(y<=2)){
+    	$('#TamanhoRealPeca').effect( "highlight", {}, 350 );
+    	$('#TamanhoRealPeca').effect( "bounce", {times:4}, 350 );
+    }else{
+    	$('#TamanhoDesejadoPeca').effect( "highlight", {}, 350 );
+    	$('#TamanhoRealPeca').effect( "highlight", {}, 350 );
+    	$('#TamanhoDesejadoPeca').effect( "bounce", {times:4}, 350 );
+    	$('#TamanhoRealPeca').effect( "bounce", {times:4}, 350 );
+    }
+
   });
 
   /************************ Caixa de Dialogo *****************************/
 /*NÃO USADO AINDA*/
-    $("#dialog").dialog({
+    $("#dialog_fator").dialog({
         autoOpen: false,
         width: 400,
         hide : "explode",
@@ -422,7 +438,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -456,7 +472,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -490,7 +506,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -524,7 +540,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -560,7 +576,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -595,7 +611,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
@@ -629,7 +645,7 @@ $(document).ready(function(){
             customLayout: {
                 'default' : [
                     '7 8 9',
-                    '5 6 7',
+                    '4 5 6',
                     '1 2 3',
                     '{bksp} 0 {a} {c}'                
             	]
