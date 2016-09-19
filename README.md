@@ -361,38 +361,32 @@ Put username: "admin" and password:
 ___
 ##7-GULP Automation
 
-npm init
-
-npm install gulp --save-dev
-
-npm install
-
-|-- app
-|  |-- bower_modules
-|  |-- assets
-|  |  |-- styles
-|  |  |  |-- style_one.scss
-|  |  |  |-- style_two.scss
-|  |  |-- scripts
-|  |  |  |-- script_one.coffee
-|  |  |  |-- script_two.coffee
-|  |  |-- images
-|  |-- index.html
-|-- dist
-|  |-- assets
-|  |  |-- styles
-|  |  |  |-- main.min.css
-|  |  |-- scripts
-|  |  |  |-- main.min.js
-|  |  |-- images
-|  |-- index.html
-|-- node_modules
-
 Gulp is a toolkit that helps you automate painful or time-consuming tasks in your development.
 
-npm install --save-dev gulp-cssmin gulp-watch gulp-concat gulp-strip-css-comments
+You need to have [NodeJS][3] installed onto your computer before you can install Gulp. 
 
-npm install node-red-dashboard --save
+    npm install gulp -g
+    
+**Creating a Gulp Project**
+
+The npm init command creates a package.json file for your project which stores information about the project
+
+    npm init
+    
+Once the package.json file is created, we can install Gulp into the project by using the following command: 
+
+    npm install gulp --save-dev
+    
+If you check the project folder when the command has finished executing, you should see that Gulp has created a **node_modules** folder
+
+For complete instalation now using command:
+
+    npm install
+
+The gulp community is growing, with new plugins being added daily. See the [main website][14] for a complete list.
+
+Type "gulp watch" and leave the window open, do not cancel because the process will be monitoring the files, if one has any changes, the final file will be generated again.
+
 ___
 #Author
 
@@ -413,3 +407,4 @@ pxa255@gmail.com
 [11]:http://www.7-zip.org/
 [12]:https://www.sublimetext.com/
 [13]:https://packagecontrol.io/installation
+[14]:http://gulpjs.com/plugins/
