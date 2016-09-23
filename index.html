@@ -70,7 +70,7 @@
                                     	<a href='#' id='recuaPerfil' valor='{"led":-1}'><img src="images/cmd-aplan-perfil-recua.png" alt="recuaPerfil" width="100" height="100" title="Recuar chapa"/></a>
                                     </div>
                                     <div id="plano6B">
-                                    	<a href='#' id='avancaPerfil' valor='{"led":-1}'><img src="images/cmd-aplan-perfil-avanca.png" alt="avancaPerfil" width="100" height="100"/></a>
+                                    	<a href='#' id='avancaPerfil' valor='{"led":-1}'><img src="images/cmd-aplan-perfil-avanca.png" alt="avancaPerfil" width="100" height="100" title="Avançar chapa"/></a>
                                     </div>
                                     <div id="plano7">
                                     	<a href='#' id='abrirTampa' valor='{"led":-1}'><img src="images/cmd-aplan-tampa-abrir.png" alt="abrirTampa" width="70" height="65" title="Abrir Tampa da Aplanadora"/></a>
@@ -128,9 +128,9 @@
                                             <p>Fator de correção do encoder.</p>
                                             <input class="input" id="FatorEncoder" type="text"/>
                                             <p>Tamanho medido da peça "mm"?</p>
-                                            <input class="input" id="TamanhoRealPeca" type="text"/>
+                                            <input class="input" id="TamanhoRealPeca" type="text" title="valores de 2 a 20000mm"/>
                                             <p>Tamanho que a peça deveria ter?</p>
-                                            <input class="input" id="TamanhoDesejadoPeca" type="text"/>
+                                            <input class="input" id="TamanhoDesejadoPeca" type="text" title="valores de 2 a 20000mm"/>
                                             <p>Corrigir fator de encoder</p>
 
 											<button class="btn" type="submit" id="botao_RecalcularFator">Recalcular Fator</button>
@@ -149,7 +149,7 @@
                                             <p>Passo da Aplanadora "mm"</p>
                                             <input class="input" id="PassoAplanadora" type="text"/>
                                             <p>Erro de posicionamento</p>
-                                            <input class="input" id="MaqUItErroPos" type="text"/>
+                                            <input class="input" id="MaqUItErroPos" type="text" readonly/>
                                         </td>
                                         <td style="width: 260px; padding:30px;">
                                             <p><h2 style="text-decoration: underline;">Encoder.</h2></p>

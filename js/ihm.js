@@ -185,6 +185,7 @@ $(document).ready(function(){
         } 
       });
   });
+  
 
   /************************ - TAB 2 - *********************************/
 
@@ -218,7 +219,7 @@ $(document).ready(function(){
           });
         },
         initialized : function(e, keyboard, el) {
-          el.value = '0';
+          el.value = '5';
         }
     });
 
@@ -400,8 +401,18 @@ $(document).ready(function(){
 
   });
 
+   /********** TOOLTIPS ******/
+  $( "#ciclosOK").tooltip();
+  $( "#Desbobinador").tooltip();
+  $( "#recuaPerfil").tooltip();
+  $( "#avancaPerfil").tooltip();
+  $( "#abrirTampa").tooltip();
+  $( "#fecharTampa").tooltip();
+  $( "#ligarPrensa").tooltip();
+  $( "#TamanhoRealPeca").tooltip();
+  $( "#TamanhoDesejadoPeca").tooltip();
+
   /************************ Caixa de Dialogo *****************************/
-/*NÃO USADO AINDA*/
     $("#dialog_fator").dialog({
         autoOpen: false,
         width: 400,
@@ -429,8 +440,6 @@ $(document).ready(function(){
     });
 
     
-/************************ FIM *****************************/
-
 /*Velocidade maxima que o servo motor vai atingir no modo automatico M14*/
   $('#VelMaxServoAuto')
     .keyboard({
@@ -461,7 +470,7 @@ $(document).ready(function(){
           });
         },
         initialized   : function(e, keyboard, el) {
-          el.value = '1000';
+          el.value = '100';
         }
     });
 
@@ -495,7 +504,7 @@ $(document).ready(function(){
           });
         },
         initialized   : function(e, keyboard, el) {
-          el.value = '1000';
+          el.value = '100';
         }
     });
 
@@ -534,38 +543,8 @@ $(document).ready(function(){
     });
 
 /*Registrador de Erro no posicionamento M19*/
-  $('#MaqUItErroPos')
-    .keyboard({
-        layout: 'custom',
-            customLayout: {
-                'default' : [
-                    '7 8 9',
-                    '4 5 6',
-                    '1 2 3',
-                    '{bksp} 0 {a} {c}'                
-            	]
-        	},
-        maxLength : 6, /*numero maximo de carcteres nesse campo*/
-        restrictInput : true, /*entrada de caracters restritas*/
-        useCombos : false,/* espera funcao validade callback para funcionar*/
-        acceptValid : true,
-        validate : function(keyboard, value, isClosing){
-            return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
-        },
-        accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"MaqUItErroPos\":" + el.value + "}");
-          //window.alert(el.value); /*debug para mostrar valor*/
-          message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
-          client.send(message, function(err, result) {
-            if (err) {
-              window.alert("erro");
-            } 
-          });
-        },
-        initialized   : function(e, keyboard, el) {
-          el.value = '1000';
-        }
-    });
+  $('#MaqUItErroPos').addClass("ui-widget ui-widget-content ui-corner-all");
+
 
 /******** Encoder *************/
 
@@ -639,38 +618,7 @@ $(document).ready(function(){
     });
 
 /*Valor medido pela POP do encoder que esta medindo o perfil M5*/
-  $('#EncoderValor')
-    .keyboard({
-        layout: 'custom',
-            customLayout: {
-                'default' : [
-                    '7 8 9',
-                    '4 5 6',
-                    '1 2 3',
-                    '{bksp} 0 {a} {c}'                
-            	]
-        	},
-        maxLength : 6, /*numero maximo de carcteres nesse campo*/
-        restrictInput : true, /*entrada de caracters restritas*/
-        useCombos : false,/* espera funcao validade callback para funcionar*/
-        acceptValid : true,
-        validate : function(keyboard, value, isClosing){
-          return value.length >= 3; /*Somente valido se conter esse numero de caracteres*/
-        },
-        accepted : function(e, keyboard, el) {
-          message = new Messaging.Message("{\"MbPosAtual\":" + parseInt(el.value) + "}");
-          //window.alert(el.value); /*debug para mostrar valor*/
-          message.destinationName = "AplanadoraN/registradores"; /*topico para onde vai o valor*/
-          client.send(message, function(err, result) {
-            if (err) {
-              window.alert("erro");
-            } 
-          });
-        },
-        initialized   : function(e, keyboard, el) {
-          el.value = '1000';
-        }
-    });
+  $('#EncoderValor').addClass("ui-widget ui-widget-content ui-corner-all");
 
 /* botão de reset do parametros e da coleção parametros*/
     $("#botao_Reset_parametros").button({
@@ -723,64 +671,63 @@ $(document).ready(function(){
         var p = document.createElement("p");
         var t = document.createTextNode(message.payloadString);
 
-        switch(message.payloadString){
-          case "{MAQUINA_ON:1}":
+        var msg = JSON.parse(message.payloadString);
+        console.log(JSON.stringify(msg, null, 2 )); //Mostra toda mensagem
+        
+          if (msg.PRENSA_CICLOS !== undefined) {
+          	$('#NumeroCiclosPrensa').val(msg.PRENSA_CICLOS);
+          } 
+          if (msg.MAQUINA_ON === 1) {
             $('#LigarMaquina').addClass("on");  
-            break;
-          case "{MAQUINA_OFF:0}":
+          }
+          if (msg.MAQUINA_ON === 0) {
             $('#LigarMaquina').removeClass("on");
-            break;
-          case "{APLANADORA_FECHADA:1}":
+          }
+          if (msg.POS_ATUAL !== undefined) {  				
+          	$('#EncoderValor').val(msg.POS_ATUAL);				
+          } 
+          if (msg.ERRO_POS !== undefined) {  				
+          	$('#MaqUItErroPos').val(msg.ERRO_POS);				
+          }
+          if (msg.APLANADORA_FECHADA === 1) {
             $('#fecharTampa').hide();
-            break;
-          case "{APLANADORA_FECHADA:0}":
+          }
+          if (msg.APLANADORA_FECHADA === 0) {
             $('#fecharTampa').show();
-            break;
-          default:
-          	//info - warning - error
-          	//console.log( $('#Mensagem').html());
-          	var msg = JSON.parse(message.payloadString);
+          } 
           if (msg.EncPerim !== undefined) {  				//<--Perimetro M22
           	$('#Perimetro').val(msg.EncPerim);				//<--Tudo JQuery UI!
-          	break;
           }  
           if (msg.EncResol !== undefined){ 			//<--Resolucao encoder M21
           	$('#Resolucao').val(msg.EncResol);
-          	break;
           }
           if (msg.EncFactor !== undefined){ 		//<--Fator de encoder M20
           	$('#FatorEncoder').val(msg.EncFactor);
             $('#TamanhoDesejadoPeca').val(0);
             $('#TamanhoRealPeca').val(0);
-          	break;
           }
           if (msg.AplanPasso !== undefined){ 		//<--Passo da Aplanadora M18
           	$('#PassoAplanadora').val(msg.AplanPasso);
-          	break;
           } 
           if (msg.AplanVelMan !== undefined){ 		//<--Velocidade Max Manual M17 
           	$('#VelMaxServoManual').val(msg.AplanVelMan);
-          	break;
           } 
           if (msg.AplanVelAuto !== undefined){ 	//<--Velocidade Max Auto M14
           	$('#VelMaxServoAuto').val(msg.AplanVelAuto);
-          	break;
           }
           if (msg.PrsCiclosUnid !== undefined){ 		//<--Lubrificar a cada "X" ciclos M23
           	$('#NumeroCiclosPrensa').val(msg.PrsCiclosUnid);
-          	break;
           }
           if (msg.NovoPrsCiclosUnd !== undefined){ 	//<--Proxima lubrificação em "X" ciclos M25
           	$('#NumeroCiclosFaltantes').val(msg.NovoPrsCiclosUnd);
-          	break;
           }  
+          //info - warning - error
           if (msg.message !== undefined){
           	var m = "<p><span class=\"ui-icon " + (msg.type === "warning" ? "ui-icon-alert" : msg.type === "error" ? "ui-icon-circle-close" : "ui-icon-info") + "\" style=\"float: left; margin-right: .3em;\"></span><strong>Alerta:</strong>" + (msg.message || '') + "</p>";
               $('#Mensagem').attr('class', (msg.type === "error" ? 'ui-state-error' : 'ui-state-highlight') + ' ui-corner-all');
               $('#Mensagem').html(m);
-          break;
-          }
-        } 
+              //console.log( $('#Mensagem').html()); //Debug 
+          } 
       }
 
       function onConnectionLost(responseObject) {
@@ -790,6 +737,8 @@ $(document).ready(function(){
       }    
     }
 });  
+
+
 
 
 /******Referencia*****/
