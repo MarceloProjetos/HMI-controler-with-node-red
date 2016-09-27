@@ -87,7 +87,7 @@ gulp.task('minify-imagens', function() {
  });
 
 // Tarefa padrão quando executado o comando "gulp"
-gulp.task('default',['minify-css','minify-js','minify-jquery','minify-keyboard','minify-mousewheel','minify-jquery-ui']);
+gulp.task('default',['minify-css','minify-js','minify-jquery','minify-keyboard','minify-mousewheel','minify-imagens','minify-jquery-ui']);
 
 // Tarefa de monitoração caso algum arquivo seja modificado, comando "gulp watch"
 gulp.task('watch', function() {
