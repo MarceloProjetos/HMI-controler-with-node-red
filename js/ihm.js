@@ -1,3 +1,19 @@
+(function( $ ){
+//plugin buttonset vertical
+$.fn.buttonsetv = function() {
+  $(':radio', this).wrap('<div style="margin: 60px"/>');
+  $(this).buttonset();
+  $('label', this).removeClass('ui-corner-left ui-corner-right').addClass('ui-corner-top ui-corner-bottom');
+  var maxWidth = 280; // max witdh
+  $('label', this).each(function(index){
+     var labelWidth = $(this).width();
+     if (labelWidth > maxWidth ) maxWidth = labelWidth ; 
+  })
+  $('label', this).each(function(index){
+    $(this).width(maxWidth);
+  })
+};
+})( jQuery );
 
 $(document).ready(function(){
   var text = "0";
@@ -19,43 +35,42 @@ $(document).ready(function(){
      /******* - TAB 1 PRINCIPAL - *-***********/
 
 /* Parar servo + motor de prensa + hidraulica */
- $("#botao_Parar_Maquina").button().click(function(){ 
 
-      message = new Messaging.Message("{\"botao_Parar_Maquina\":" + "1" + "}");
-      message.destinationName = "board/setup";
-      client.send(message, function(err, result) {
+ $("#radio").buttonsetv();
+
+  $('#myForm input').on('change', function() {
+     //Parar motores e hidraulica
+     if ($('input[name=radio]:checked', '#myForm').val()==1){
+        message = new Messaging.Message("{\"botao_Parar_Maquina\":" + "1" + "}");
+        message.destinationName = "board/setup";
+        client.send(message, function(err, result) {
         if (err) {
-          window.alert('erro');
-        } 
-      });
-    }); //Parar motores e hidraulica
-
-/* Habilita modo manual e libera botões de controle */
- $("#botao_Manual").button().click(function(){ 
-
-      message = new Messaging.Message("{\"botao_Manual\":" + "1" + "}");
-      message.destinationName = "board/setup";
-      client.send(message, function(err, result) {
+            window.alert('erro');
+          } 
+        }); 
+     }
+     if ($('input[name=radio]:checked', '#myForm').val()==2){
+      /* Habilita modo manual e libera botões de controle */
+        message = new Messaging.Message("{\"botao_Manual\":" + "1" + "}");
+        message.destinationName = "board/setup";
+        client.send(message, function(err, result) {
         if (err) {
-          window.alert('erro');
-        } 
-      });
-    }); //Habilita modo manual e libera botões de controle
-
-/* Coloca ela em modo Automatico e coloca para produzir */
- $("#botaoProduzir").button().click(function(){ 
-
-      $('botaoProduzir').toggleClass('Produzindo');
-
-      message = new Messaging.Message("{\"botao_Produzir\":" + "1" + "}");
-      message.destinationName = "board/setup";
-      client.send(message, function(err, result) {
+            window.alert('erro');
+          } 
+        });
+         
+     }
+     if ($('input[name=radio]:checked', '#myForm').val()==3){
+      /* Coloca ela em modo Automatico e coloca para produzir */
+        message = new Messaging.Message("{\"botao_Produzir\":" + "1" + "}");
+        message.destinationName = "board/setup";
+        client.send(message, function(err, result) {
         if (err) {
-          window.alert('erro');
-        } 
-      });
-    });// Coloca ela em modo Automatico e coloca para produzir
-
+            window.alert('erro');
+          } 
+        });
+     }
+  });
  
   $("#Desbobinador").on('click', function(data){
      
