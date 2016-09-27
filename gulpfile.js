@@ -1,32 +1,35 @@
 // Explicação: /*.css busca todos os arquivos css de uma pasta
-var css 		= ['./css/*.css'];
-var js  		= ['./js/ihm.js',
-		   		   './js/mqttws31.js'];
-var jquery 		=['./js/jquery.js'];
-var jqueryui 	=['./js/jquery-ui.js'];
-var keyboard 	=['./js/jquery.keyboard.js'];
-var mousewheel 	=['./js/jquery.mousewheel.js'];
-var index		=['./index.html'];
+const css 			= ['./css/*.css'],
+	  js  			= ['./js/ihm.js','./js/mqttws31.js'],
+	  jquery 		= ['./js/jquery.js'],
+	  jqueryui 		= ['./js/jquery-ui.js'],
+	  keyboard 		= ['./js/jquery.keyboard.js'],
+	  mousewheel 	= ['./js/jquery.mousewheel.js'],
+	  figuras		= ['./images/*'],
+	  index			= ['./index.html'];
 
 // Núcleo do Gulp
-var gulp      		= require('gulp');
+const gulp      		= require('gulp');
 
 // Agrupa todos os arquivos em um
-var concat    		= require('gulp-concat');
-var dest 	  		= require('gulp-dest');
-var strip 			= require('gulp-strip-comments');
+const concat    		= require('gulp-concat');
+const dest 	  		  	= require('gulp-dest');
+const strip 			= require('gulp-strip-comments');
 
 // Remove comentários CSS
-var stripCssComments = require('gulp-strip-css-comments');
+const stripCssComments 	= require('gulp-strip-css-comments');
 
 // Minifica o CSS
-var cleanCSS 		= require('gulp-clean-css');
+const cleanCSS 			= require('gulp-clean-css');
 
 // Transforma o javascript em formato ilegível para humanos
-var uglify 			= require("gulp-uglify");
+const uglify 			= require("gulp-uglify");
 
 // Verifica alterações em tempo real, caso haja, compacta novamente todo o projeto
-var watch 			= require('gulp-watch');
+const watch 			= require('gulp-watch');
+
+// minimifica imagens
+const imagemin      	= require('gulp-imagemin');
 
 // Processo que agrupará todos os arquivos CSS, removerá comentários CSS e minificará.
 gulp.task('minify-css', function() {
@@ -74,6 +77,13 @@ gulp.task('minify-mousewheel', function() {
            .pipe(strip())
            .pipe(uglify())
            .pipe(gulp.dest('./gulp/js'));
+ });
+
+// gulp minify-imagens minimifica 1x a imagem
+gulp.task('minify-imagens', function() {
+     gulp.src(figuras)
+           .pipe(imagemin()) 
+           .pipe(gulp.dest('./gulp/images'));
  });
 
 // Tarefa padrão quando executado o comando "gulp"

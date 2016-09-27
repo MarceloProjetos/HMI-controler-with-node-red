@@ -43,7 +43,9 @@ $(document).ready(function(){
     }); //Habilita modo manual e libera botões de controle
 
 /* Coloca ela em modo Automatico e coloca para produzir */
- $("#botao_Produzir").button().click(function(){ 
+ $("#botaoProduzir").button().click(function(){ 
+
+      $('botaoProduzir').toggleClass('Produzindo');
 
       message = new Messaging.Message("{\"botao_Produzir\":" + "1" + "}");
       message.destinationName = "board/setup";
