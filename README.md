@@ -276,14 +276,22 @@ Below how are structured as the "Collections" or "Tables" of this project "**par
     "timestamp": new Date()
     }
     
-And collection log_erro
+Collection log_erro
 
     db.createCollection('log_erro')
     {
-    	"_id": "AplanadoraN3",
-    	"log_erro": "Aplanadora N3",
-    	"log_erro_masagens": {
-    	}
+	    "_id": 1,
+	    "log_mesagens": {
+         /* json message format */
+	    }
+    }
+    
+And Indice
+
+    db.createCollection('indice')
+    {
+        "_id": "indice",
+	    "indice_mesagens": 0
     }
 ___
 ##5-Configuring access of node-red across settings.js
