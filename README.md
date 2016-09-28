@@ -202,9 +202,10 @@ ___
 
 Enter at the prompt where you run "mongo.exe" run commands below:
 
-    use db 					            <--Create a database called db
+    use db 					            <--Create a database called db. If exists it enters in the collection.
     db.createCollection('parametros')	<--Create a collection called parametros
     db.createCollection('log_erro')		<--Create a collection called log_erro
+    db.createCollection('indice')		<--Create a collection called indice
     show dbs 				            <--Show names of banks and their sizes
     show collections			        <--Displays the collections in the current bank
     exit					            <--Exit to mongo shell or **Ctrl + C**
