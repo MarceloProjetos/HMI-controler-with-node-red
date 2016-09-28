@@ -756,37 +756,9 @@ $(document).ready(function(){
 });  
 
 
-
-
 /******Referencia*****/
 //$("#ciclosOK").button(); //Somente leitura, toda vez que um ciclo termina sem erros ciclo++. Caso tenha um erro zera o valor!
 
  //$("#botao_Parar_Maquina").css({ width: '280px', 'padding-top': '10px', 'padding-bottom': '10px', 'font-size':'1.4em'}); exemplo de mudar CSS javscript
 
-/*Funcao de configura o botão radio em botões verticais
-Script
-(function( $ ){ 
-$.fn.buttonsetv = function() {
-  $(':radio', this).wrap('<div style="margin: 2px"/>');
-  $(this).buttonset();
-    $('label', this).each(function(index){
-    $(this).width(240); //largura do botão
-    $(this).height(50); //altura do botão
-  })
-  $('label:first', this).removeClass('ui-corner-left').addClass('ui-corner-top');
-  $('label:last', this).removeClass('ui-corner-right').addClass('ui-corner-bottom');
-};
-})( jQuery );
-
-//Chama funcao que alinha verticalmente os botoes
-$(document).ready(function(){
-    $("#radio").buttonsetv();
-})
-HTML
-<div id="radio">
-<input type="radio" id="radio1" name="radio" value="1"/><label for="radio1">Parar Maquina</label>
-<input type="radio" id="radio2" name="radio" value="2"/><label for="radio2">Manual</label>
-<input type="radio" id="radio5" name="radio" value="5"/><label for="radio5">Desligar Hidraulica</label>
-<input type="radio" id="radio6" name="radio" value="6"/><label for="radio6">Produzir</label>
-</div>
-****************************/
+/****************************/
