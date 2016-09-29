@@ -30,7 +30,20 @@ $(document).ready(function(){
    
   });
  
- $("#tabs").tabs(); //tabs onde fica quase toda a pagina
+ $("#tabs").tabs({
+  beforeActivate: function (event, ui) {
+    if(ui.newPanel.attr('id')=="tabs-2"){
+      message = new Messaging.Message("{\"AtualizarRegistradores\":" + "1" + "}");
+        message.destinationName = "board/setup";
+        client.send(message, function(err, result) {
+        if (err) {
+            window.alert('erro');
+          } 
+        }); 
+    }
+  }
+}); //tabs onde fica quase toda a pagina
+
 
      /******* - TAB 1 PRINCIPAL - *-***********/
 
