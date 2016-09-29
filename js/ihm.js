@@ -191,7 +191,7 @@ $(document).ready(function(){
   });
   $("#fecharTampa").on('mouseup', function(data){ //M31.11
      
-     var valor = $(this).attr('valor');
+     //var valor = $(this).attr('valor');
      //window.alert('fecharTampa = ' + valor);
 
       message = new Messaging.Message("{\"fecharTampa\":" + "0" + "}");
@@ -300,6 +300,16 @@ $(document).ready(function(){
                   primary: "ui-icon-arrowrefresh-1-e"
                }
             });
+
+   $("#botao_InverterRotacao").mouseup(function(event){
+      message = new Messaging.Message("{\"SentidoInv\":" + "1" + "}");
+      message.destinationName = "board/setup";
+      client.send(message, function(err, result) {
+        if (err) {
+          window.alert('erro');
+        } 
+      }); 
+   }); 
 
   /*Numero que corrige a relação de transmição da maquina multiplicando o numero de pulsos do encoder M20*/
   $('#FatorEncoder')
