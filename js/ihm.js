@@ -438,7 +438,6 @@ $(document).ready(function(){
     	$('#TamanhoDesejadoPeca').effect( "bounce", {times:4}, 350 );
     	$('#TamanhoRealPeca').effect( "bounce", {times:4}, 350 );
     }
-
   });
 
    /********** TOOLTIPS ******/
@@ -452,7 +451,7 @@ $(document).ready(function(){
   $( "#TamanhoRealPeca").tooltip();
   $( "#TamanhoDesejadoPeca").tooltip();
 
-  /************************ Caixa de Dialogo *****************************/
+  /************************ Caixa de Dialogo fator encoder *******************/
     $("#dialog_fator").dialog({
         autoOpen: false,
         width: 400,
@@ -479,6 +478,39 @@ $(document).ready(function(){
         }]
     });
 
+$('a#login').click(function(){
+$("#box,form").fadeIn('slow');
+})
+
+
+
+    /************************ Caixa de Dialogo RESET maquina *******************/
+    $("#dialog_fator2").dialog({
+        autoOpen: false,
+        width: 400,
+        hide : "explode",
+        modal : true, /*Bloqueia a tela até ter uma resposta */
+        buttons: [{
+            text: "RESET",
+            click: function(data) {
+              message = new Messaging.Message("{\"ResetMaquina\":" + "1" + "}");
+              message.destinationName = "board/setup"; /*topico para onde vai o valor*/
+              client.send(message, function(err, result) {
+                if (err) {
+                  window.alert('erro');
+                } 
+              });
+              $(this).dialog("close");
+              //window.location.reload(); reload
+            }
+            }, 
+            {
+            text: "VOLTAR!",
+            click: function() {
+                $(this).dialog("close");
+            }
+        }]
+    });
     
 /*Velocidade maxima que o servo motor vai atingir no modo automatico M14*/
   $('#VelMaxServoAuto')
@@ -585,7 +617,6 @@ $(document).ready(function(){
 /*Registrador de Erro no posicionamento M19*/
   $('#MaqUItErroPos').addClass("ui-widget ui-widget-content ui-corner-all");
 
-
 /******** Encoder *************/
 
 /*Perimetro em milimetros da roda do encoder que entra em contato com o produto M22*/
@@ -666,6 +697,11 @@ $(document).ready(function(){
                   primary: "ui-icon-refresh"
                }
             });
+    $("#botao_Reset_parametros").mouseup(function(event){
+        $("#dialog_fator2").dialog("open");
+        event.preventDefault();
+    }); 
+
 
 /************************ - ACTIVEMQ - *********************************/
 
@@ -691,13 +727,13 @@ $(document).ready(function(){
 	      return false;
 	    });  
 
-      var onConnect = function(frame) { /* O cliente notifica que esta conectado ao servidor.*/
+      var onConnect = function(frame) {           // O cliente notifica que esta conectado ao servidor.
         alert("Conectado ao sitema");
         client.subscribe("AplanadoraN/Estado");
-        client.subscribe("AplanadoraN/registradores"); /* Escuta o node-red*/
+        client.subscribe("AplanadoraN/registradores"); // Escuta o node-red
       };  
 
-      var debug = function(str) { // this allows to display debug logs directly on the web page
+      var debug = function(str) {                 // this allows to display debug logs directly on the web page
         alert(document.createTextNode(str + "\n"));
       };
 
@@ -736,23 +772,23 @@ $(document).ready(function(){
             $('#fecharTampa').show();
           } 
           if (msg.EncPerim !== undefined) {  				//<--Perimetro M22
-          	$('#Perimetro').val(msg.EncPerim);				//<--Tudo JQuery UI!
+          	$('#Perimetro').val(msg.EncPerim);			//<--Tudo JQuery UI!
           }  
-          if (msg.EncResol !== undefined){ 			//<--Resolucao encoder M21
+          if (msg.EncResol !== undefined){ 			    //<--Resolucao encoder M21
           	$('#Resolucao').val(msg.EncResol);
           }
-          if (msg.EncFactor !== undefined){ 		//<--Fator de encoder M20
+          if (msg.EncFactor !== undefined){ 		    //<--Fator de encoder M20
           	$('#FatorEncoder').val(msg.EncFactor);
             $('#TamanhoDesejadoPeca').val(0);
             $('#TamanhoRealPeca').val(0);
           }
-          if (msg.AplanPasso !== undefined){ 		//<--Passo da Aplanadora M18
+          if (msg.AplanPasso !== undefined){ 		    //<--Passo da Aplanadora M18
           	$('#PassoAplanadora').val(msg.AplanPasso);
           } 
-          if (msg.AplanVelMan !== undefined){ 		//<--Velocidade Max Manual M17 
+          if (msg.AplanVelMan !== undefined){ 		  //<--Velocidade Max Manual M17 
           	$('#VelMaxServoManual').val(msg.AplanVelMan);
           } 
-          if (msg.AplanVelAuto !== undefined){ 	//<--Velocidade Max Auto M14
+          if (msg.AplanVelAuto !== undefined){ 	    //<--Velocidade Max Auto M14
           	$('#VelMaxServoAuto').val(msg.AplanVelAuto);
           }
           if (msg.PrsCiclosUnid !== undefined){ 		//<--Lubrificar a cada "X" ciclos M23
@@ -761,8 +797,7 @@ $(document).ready(function(){
           if (msg.NovoPrsCiclosUnd !== undefined){ 	//<--Proxima lubrificação em "X" ciclos M25
           	$('#NumeroCiclosFaltantes').val(msg.NovoPrsCiclosUnd);
           }  
-          //info - warning - error
-          if (msg.message !== undefined){
+          if (msg.message !== undefined){           //info - warning - error
           	var m = "<p><span class=\"ui-icon " + (msg.type === "warning" ? "ui-icon-alert" : msg.type === "error" ? "ui-icon-circle-close" : "ui-icon-info") + "\" style=\"float: left; margin-right: .3em;\"></span><strong>Alerta:</strong>" + (msg.message || '') + "</p>";
               $('#Mensagem').attr('class', (msg.type === "error" ? 'ui-state-error' : 'ui-state-highlight') + ' ui-corner-all');
               $('#Mensagem').html(m);
