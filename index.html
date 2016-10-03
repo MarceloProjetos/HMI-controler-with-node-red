@@ -54,7 +54,7 @@
                                     	<img src="images/maqaplanesqcorpo.png" 			 alt="BasePlanadora" width="265" height="243"/>	
                                     </div>
 									<div id="plano2">
-                                    	<img src="images/maq-aplan-esq-tampa-fechada.png" alt="Aplan-esq-tampa"   width="177" height="133"/>
+                                    	<img src="images/maq-aplan-esq-tampa-fechada.png" alt="Aplan-esq-tampa" width="177" height="133"/>
                                     </div>
                                     <div id="plano3">
                                     	<img src="images/maq-prs-martelo.png" alt="Aplan-esq-tampa" width="113" height="128"/>
@@ -114,8 +114,8 @@
                                             <p>Testar Lubrificação da prensa</p>
                                             <button class="btn" type="submit" id="botao_lubrificar" >Lubrificar</button>
                                             <p>Motor da Prensa</p>
-                                            <button class="btn" type="submit" id="botao_InverterRotacao">Inverter Rotação</button>
-
+                                            <input class="btn" type="checkbox"  id="botao_InverterRotacao" >
+      										<label for="botao_InverterRotacao">Inverter Rotação</label>
                                         </td>
                                         <td style="width: 260px; padding:30px; border-right: solid 1px #ccc;">
                                             <p><h2 style="text-decoration: underline;">Tamanho da peça.</h2></p>
@@ -159,9 +159,10 @@
 												<p>Você quer realmente resetar todos os parametros da máquina?</p>
 													<form>
 	    											<br/>Password:
-	    											<input type="password" name="pwd" />
+	    											<input type="password" value="Password" name="pwd" id="Senha" autocomplete="off"/>
 													</form>
 											</div>
+											
                                         </td>
                                     </tr>
                                 </table>

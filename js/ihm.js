@@ -301,7 +301,8 @@ $(document).ready(function(){
                }
             });
 
-   $("#botao_InverterRotacao").mouseup(function(event){
+   $("#botao_InverterRotacao").on('change', function(event){
+      //alert('here');
       message = new Messaging.Message("{\"SentidoInv\":" + "1" + "}");
       message.destinationName = "board/setup";
       client.send(message, function(err, result) {
@@ -482,6 +483,7 @@ $('a#login').click(function(){
 $("#box,form").fadeIn('slow');
 })
 
+                 
 
 
     /************************ Caixa de Dialogo RESET maquina *******************/
@@ -493,16 +495,20 @@ $("#box,form").fadeIn('slow');
         buttons: [{
             text: "RESET",
             click: function(data) {
-              message = new Messaging.Message("{\"ResetMaquina\":" + "1" + "}");
-              message.destinationName = "board/setup"; /*topico para onde vai o valor*/
-              client.send(message, function(err, result) {
-                if (err) {
-                  window.alert('erro');
-                } 
-              });
-              $(this).dialog("close");
-              //window.location.reload(); reload
-            }
+                if($('#Senha').val()=="Miranda"){
+                  message = new Messaging.Message("{\"ResetMaquina\":" + "1" + "}");
+                  message.destinationName = "board/setup"; /*topico para onde vai o valor*/
+                  client.send(message, function(err, result) {
+                  if (err) {
+                    window.alert('erro');
+                    }
+                  });
+                  alert("Finalizado...");
+                  window.location.reload();
+                }else{
+                 alert('Senha errada');
+                }
+              }
             }, 
             {
             text: "VOLTAR!",
