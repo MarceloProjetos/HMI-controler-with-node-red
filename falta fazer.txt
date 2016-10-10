@@ -1,0 +1,11 @@
+1- Acertar ladder para o contador de pulsos da prensa contar corretamente.
+2- Permitir gravação pelo ladder do numero de pulsos.
+3- Criar no node-red uma referencia toda vez que a prensa funcionar.
+4- Mandar um e-mail e mostrar mensagem a cada 200.000 ciclos.
+5- Colocar mais mensagens de erro no banco de dados, com data.
+6- Integrar programa com placa do ESP8266 para controlar o desbobinador.
+7- Enviar estado de ON/OFF do desbobinador para o banco de dados
+8- Acessar remoto a pagina da maquina.
+9- Acessar remoto o banco de dados da maquina.
+10- Acessar remoto a fila de mensagens da maquina. 
+11- Animar a pagina quando a prensa estiver produzindo.
