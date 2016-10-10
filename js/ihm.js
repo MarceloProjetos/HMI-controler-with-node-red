@@ -87,10 +87,10 @@ $(document).ready(function(){
  
   $("#Desbobinador").on('click', function(data){
      
-    var valor = $(this).attr('valor');
+    //var valor = $(this).attr('valor');
     //window.alert('Desbobinador = ' + valor);
 
-      message = new Messaging.Message("{\"Desbobinador\":" + valor + "}");
+      message = new Messaging.Message("{\"Desbobinador\":" + "1" + "}");
      	message.destinationName = "board/setup";
     	client.send(message, function(err, result) {
         if (err) {
@@ -204,10 +204,10 @@ $(document).ready(function(){
   });
   $("#ligarPrensa").on('click', function(data){ //M3.3
      
-     var valor = $(this).attr('valor');
+     //var valor = $(this).attr('valor');
      //window.alert('ligarPrensa = ' + valor);
 
-      message = new Messaging.Message("{\"LigarPrensa\":" + valor + "}");
+      message = new Messaging.Message("{\"LigarPrensa\":" + "0" + "}");
       message.destinationName = "board/setup";
       client.send(message, function(err, result) {
         if (err) {
