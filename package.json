@@ -1,11 +1,11 @@
 {
-  "name": "hmicontroller",
-  "version": "1.0.0",
+  "name": "hmicontroller_n3",
+  "version": "1.2.0",
   "description": "HMI Controller with Node-Red and mongoDB",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp":"gulp",
+    "gulp": "gulp",
     "gulp-watch": "gulp watch",
     "node-red": "node-red -v"
   },
@@ -34,15 +34,16 @@
     "gulp-cssmin": "^0.1.7",
     "gulp-dest": "^0.2.3",
     "gulp-imagemin": "^3.0.3",
+    "gulp-refresh": "^1.1.0",
     "gulp-strip-comments": "^2.4.3",
     "gulp-strip-css-comments": "^1.2.0",
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.9"
   },
   "dependencies": {
-    "node-red": "^0.14.6",
+    "node-red": "^0.15.0",
     "node-red-contrib-modbustcp-no-pooling": "^0.1.7",
-    "node-red-dashboard": "^2.0.2",
+    "node-red-dashboard": "^2.1.0",
     "node-red-node-mongodb": "0.0.7"
   }
 }
