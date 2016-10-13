@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "gulp",
     "gulp-watch": "gulp watch",
-    "node-red": "node-red -v"
+    "node-red": "node-red"
   },
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
     "gulp-watch": "^4.3.9"
   },
   "dependencies": {
-    "node-red": "^0.15.0",
+    "node-red": "^0.15.1",
     "node-red-contrib-modbustcp-no-pooling": "^0.1.7",
     "node-red-dashboard": "^2.1.0",
     "node-red-node-mongodb": "0.0.7"
