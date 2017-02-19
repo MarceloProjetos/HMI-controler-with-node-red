@@ -1,5 +1,7 @@
-HMI (human machine interface) in Node-RED & MongoDB
-========================
+Obsolete 
+Changing the jQuery technology project to Reach + Router
+Please consider using "IHM_REACT-ROUTER" 
+==========================================================
 
 This project is an HTML page that accesses a "MQTT" server, that accesses the "Node-red". The Node-Red in turn accesses a MongoDB database which stores the machine records. The Node-red manages all this data and controls a PLC with Modbus TCP server. As in the image below:
 
